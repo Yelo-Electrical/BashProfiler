@@ -11,7 +11,7 @@ alias edit="subl ~/.bash_profile"
 alias fresh="source ~/.bash_profile"
 alias ga="git add . && clear && git status"
 alias gb="clear && git branch"
-alias genproto="yelo && cd bashscripts && bash genProto.sh"
+alias genpsg="yelo && cd bashscripts && bash genPSG.sh"
 alias gopath="cd ~/go"
 alias gp="genproto"
 alias gr="git rebase $1"
@@ -22,8 +22,9 @@ alias yelo="cd /c/Dev/MicroService"
 alias la="ls -al"
 alias ll="ls -l"
 alias mas="git checkout master"
-alias runClient="yelo && cd bashscripts && bash runClient.sh"
-alias runServer="yelo && cd bashscripts && bash runServer.sh"
+alias runc="yelo && cd bashscripts && bash runClient.sh"
+alias runrc="yelo && cd bashscripts && bash runRClient.sh"
+alias runs="yelo && cd bashscripts && bash runServer.sh"
 alias sql="mysql -u root -p"
 
 check() {
@@ -36,10 +37,18 @@ checknew() {
 
 dd () {
 	cd $1
-	la
+	ls
 }
 
-//A hard version of fresh where we push the file to git repo
+f() {
+	grep -R "$1" *
+}
+
+ff () {
+	grep -R "$1" $2
+}
+
+#A hard version of fresh where we push the file to git repo
 refresh() {
 	cd ~
 	cp  .bash_profile bash_profile/
