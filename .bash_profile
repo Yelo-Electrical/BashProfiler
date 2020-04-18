@@ -39,6 +39,7 @@ dd () {
 	la
 }
 
+//A hard version of fresh where we push the file to git repo
 refresh() {
 	cd ~
 	cp  .bash_profile bash_profile/
