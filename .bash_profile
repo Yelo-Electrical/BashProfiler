@@ -1,8 +1,8 @@
 export PATH=$PATH:C:/Dev/protoc-3.11.4-win64/bin
-export PATH=$PATH:"C:/go Program Files/MySQL/MySQL Workbench 8.0 CE/"
-
+export PATH=$PATH:"C:/Program Files/MySQL/MySQL Workbench 8.0 CE/"
 alias ab="git push -u origin $1"
-alias build="go build hello.go && ./hello.exe"
+alias b="cd .."
+alias bs="cd bashscripts"
 alias c="clear"
 alias cm="check master"
 alias dev="cd /c/Dev"
@@ -11,34 +11,81 @@ alias edit="subl ~/.bash_profile"
 alias fresh="source ~/.bash_profile"
 alias ga="git add . && clear && git status"
 alias gb="clear && git branch"
-alias genpsg="yelo && cd bashscripts && bash genPSG.sh"
-alias gopath="cd ~/go"
-alias gp="genproto"
+alias gop="cd ~/go"
+alias gp="git push origin master"
 alias gr="git rebase $1"
 alias gs="clear && git status"
 alias gst="git stash"
-alias gsta="git stash apply"
-alias yelo="cd /c/Dev/MicroService"
+alias gsa="git stash apply"
+alias home="command cd ~"
 alias la="ls -al"
 alias ll="ls -l"
 alias mas="git checkout master"
-alias runc="yelo && cd bashscripts && bash runClient.sh"
-alias runrc="yelo && cd bashscripts && bash runRClient.sh"
-alias runs="yelo && cd bashscripts && bash runServer.sh"
+alias ns="netstat -ano"
+alias repo="cd /c/Users/Dell\ XPS/Dev/Repositories"
+alias sh="bash"
 alias sql="mysql -u root -p"
+alias yelo="cd /c/Users/Dell\ XPS/Dev/Repositories/YeloElectrical"
+
+#Starting Services
+alias be="yelo && cd BE"
+alias dum="yelo && cd DummyMS"
+alias malta="repo && cd Malta2/be"
+alias sand="todir be && bash runSandbox.sh"
+
+todir () {
+	cmd=$1
+
+	case $cmd in
+	'be')
+	  be
+	  ;;
+	'dum')
+	  dum
+	  ;;
+	 'malta')
+	  malta
+	  ;;
+	esac
+
+	cd bashscripts
+}
+
+genp() {
+	todir $1
+	bash genProto.sh
+}
+
+runs () {
+	todir $1
+	bash runServer.sh
+}
+
+runc () {
+	todir $1
+	bash runClient.sh
+}
+
+runfe () {
+	todir $1
+	bash runFE.sh
+}
+
+t () {
+	todir $1
+	cd ../pkg/service/v1
+	go test
+}
 
 check() {
 	git checkout $1
 }
 
-checknew() {
+bn() {
 	git checkout -b $1
 }
 
-dd () {
-	cd $1
-	ls
-}
+
 
 f() {
 	grep -R "$1" *
@@ -56,6 +103,7 @@ refresh() {
 	git add .
 	git commit -m "changes"
 	git push -u origin master
+	yelo
 }
 
 gc() {
@@ -68,7 +116,12 @@ gbd() {
 	git branch -D $1
 }
 
-mergesquash() {
+gf() {
+	git remote add $1
+	git push origin master
+}
+
+ms() {
     checknew "$1Merge"
     git merge --squash "$1"
     git add .
@@ -86,3 +139,6 @@ o () {
 v() {
 	vim $1
 }
+
+
+
