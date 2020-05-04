@@ -1,6 +1,7 @@
 echo Pulling bash profiles...
 # Copy .bash_profile to working directory
-# cp ~/.bash_profile ../bashprofilefiles
+cp -r ~/.bash_profile ../bashprofilefiles
+cp -r ~/.bash_profile ~/BergeSafetyVault
 
 # Build and run Go project to manipulate bash_profile
 mkdir -p ../build
