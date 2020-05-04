@@ -1,0 +1,5 @@
+alias g=echo "new_bash profile g"
+
+commandH() {
+    echo "new_bash profile h"
+}

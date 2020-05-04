@@ -1,0 +1,5 @@
+alias i=echo "bash profile_deleted i"
+
+commandJ() {
+    echo "bash profile_deleted j"
+}
