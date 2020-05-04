@@ -1,7 +1,9 @@
+
 export PATH=$PATH:C:/Dev/protoc-3.11.4-win64/bin
 export PATH=$PATH:"C:/Program Files/MySQL/MySQL Workbench 8.0 CE/"
 alias ab="git push -u origin $1"
 alias b="cd .."
+alias bpc="rbp && bp && cd bashprofilefiles && cp ~/.bash_profile ."
 alias bs="cd bashscripts"
 alias c="clear"
 alias cm="check master"
@@ -23,7 +25,7 @@ alias ll="ls -l"
 alias mas="git checkout master"
 alias ns="netstat -ano"
 alias rbp="bp && rm -rf bashprofilefiles/.bash* && cp backup/.bash_profile_deleted bashprofilefiles/ && cp backup/.bash_profile bashprofilefiles/ && cp backup/.bash_profile_repo bashprofilefiles/"
-alias repo="cd /c/Users/Dell\ XPS/Dev/Repositories"
+alias repo="command cd /c/Users/Dell\ XPS/Dev/Repositories"
 alias sh="bash"
 alias sql="mysql -u root -p"
 alias vbp="bp && cat bashprofilefiles/.bash_profile"
@@ -31,10 +33,10 @@ alias vbpd="bp && cat bashprofilefiles/.bash_profile_deleted"
 alias vbpr="bp && cat bashprofilefiles/.bash_profile_repo"
 alias yelo="cd /c/Users/Dell\ XPS/Dev/Repositories/YeloElectrical"
 #Starting Services
-alias bp="repo && cd BashProfiler"
-alias be="yelo && cd BE"
-alias dum="yelo && cd DummyMS"
-alias malta="repo && cd Malta2/be"
+alias bp="repo && command cd BashProfiler"
+alias be="yelo && command cd BE"
+alias dum="yelo && command cd DummyMS"
+alias malta="repo && command cd Malta2/be"
 alias sand="todir be && bash runSandbox.sh"
 alias gens="todir be && bash genSchema.sh"
 
@@ -79,19 +81,6 @@ runfe () {
 	bash runFE.sh
 }
 
-t () {
-	todir $1
-	cd ../pkg/service/v1
-	go test 
-}
-###########################################
-cd () {
-    command cd "$1"
-    clear
-    ls
-    echo
-}
-
 check() {
 	git checkout $1
 }
@@ -112,14 +101,16 @@ ff () {
 
 berge() {
 	bp 
-	cd bashprofilefiles
+	command cd bashprofilefiles
 	cp -r ~/.bash_profile .
-	cd bash_profile
-	git pull origin master
+	command cd ../scripts
 	bash run.sh
-	git add .
-	git commit -m "Berge!"
-	git push origin master
+	# mv ../bashprofilefiles/.bash_profile ~/
+	# git pull origin master
+	# git add .
+	# git commit -m "Berge!"
+	# git push origin master
+	echo "Operation complete!"
 }
 
 gc() {
@@ -156,5 +147,11 @@ v() {
 	vim $1
 }
 
+#Nice work there Bash Profiler! YES!
+
+alias g=echo "new_bash profile g"
 
 
+commandH() {
+    echo "new_bash profile h"
+}

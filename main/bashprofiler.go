@@ -39,7 +39,9 @@ func Pull() error {
 		return err
 	}
 
-	deleted = append(deleted, deletedNew...)
+	if len(deletedNew)!=0 {
+		deleted = append(deleted, deletedNew...)
+	}
 
 
 	// repo - bash_profile_deleted
@@ -58,7 +60,7 @@ func Pull() error {
 	// write to .bash_profile
 	fileOut := ""
 	for _, p := range result {
-		fileOut += p
+		fileOut += "\r\n" + p
 	}
 	log.Printf("Writing to: %v", bash_profile)
 	err = ioutil.WriteFile(bash_profile, []byte(fileOut), os.ModePerm)
@@ -69,7 +71,7 @@ func Pull() error {
 	// write to .bash_profile_delete
 	fileOut = ""
 	for _, p := range deleted {
-		fileOut += p
+		fileOut += "\r\n" + p
 	}
 	log.Printf("Writing to: %v", bash_profile_deleted)
 	err = ioutil.WriteFile(bash_profile_deleted, []byte(fileOut), os.ModePerm)
@@ -84,7 +86,7 @@ func Pull() error {
 	// write to .bash_profile_repo //merge
 	fileOut = ""
 	for _, p := range repo {
-		fileOut += p
+		fileOut += "\r\n" + p
 	}
 	log.Printf("Writing to: %v", bash_profile_repo)
 	err = ioutil.WriteFile(bash_profile_repo, []byte(fileOut), os.ModePerm)
@@ -130,21 +132,29 @@ func SplitDeleted () ([]string, []string, error) {
 	log.Printf("Reading: %v", bash_profile)
 	var commandsKeep []string
 	var commandsDelete []string
+	deletedFound := false
 	commandsRaw, err := ioutil.ReadFile(bash_profile)
 	if err != nil {
 		return nil, nil, err
 	}
-	requests := strings.Split(string(commandsRaw), "\r\n")
+	requests := strings.Split(string(commandsRaw), "\n")
 	for i, c := range requests {
-		requests[i] = "\n" + requests[i]
+		if c=="\n" {
+			continue
+		}
 		if strings.Contains(c, "#Deleted") {
 			commandsKeep = requests[:i]
 			commandsDelete = requests[i+1:]
+			deletedFound = true
 		}
 	}
-	if commandsDelete!=nil {
-		commandsDelete[0] = "\n" + commandsDelete[0]
+	if len(commandsDelete)!=0 {
+		commandsDelete[0] = "\r\n" + commandsDelete[0]
 	}
+	if !deletedFound {
+		return requests, nil, nil
+	}
+
 	return commandsKeep, commandsDelete, nil
 }
 
