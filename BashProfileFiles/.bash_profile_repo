@@ -21,6 +21,7 @@ alias gop="cd ~/go"
 alias gp="git push -u origin $1"
 alias gp="git push origin master"
 alias gr="git rebase $1"
+alias grant, get the fuck out
 alias gs="clear && git status"
 alias gsa="git stash apply"
 alias gst="git stash"
