@@ -1,0 +1,12 @@
+alias a=echo "bash_profile"
+alias b=echo "bash_profile"
+alias g=echo "new_bash_profile g"
+commandC() {
+	echo "bash_profile"
+}
+commandD() {
+	echo "bash_profile"
+}
+commandH() {
+	echo "new_bash_profile h"
+}
