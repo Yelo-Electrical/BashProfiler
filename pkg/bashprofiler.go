@@ -6,6 +6,7 @@ import (
 	"os"
 	"sort"
 	"strings"
+	"time"
 )
 
 const (
@@ -136,6 +137,7 @@ func (bp *BashProfiler) getNewCommandsHeader() string {
 		"#New commands! Bash Profiler! Yes!",
 		"#Nice work there Bash Profiler! YES!",
 	}
+	rand.Seed(int64(time.Now().Minute()))
 	return "\n" + s[rand.Intn(len(s))]
 }
 
