@@ -1,5 +1,5 @@
 echo BERGE!
-#git pull origin master
+git pull origin master
 
 echo Backing up old bash profile to ~/BergeSafetyVault
 mkdir -p ~/BergeSafetyVault
