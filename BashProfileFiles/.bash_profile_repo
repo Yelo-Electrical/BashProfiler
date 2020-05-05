@@ -1,16 +1,3 @@
-#
-# BERGE
-# Directories
-# Directory
-# Explorer
-# Functions
-# General
-# Git
-# My SQL
-# Starting Services
-<<<<<<< HEAD
-=======
->>>>>>> 9268d4aeb5171e65e6aae9637ed4f47c441a6089
 alias ab="git push -u origin $1"
 alias b="cd .."
 alias be="yelo && command cd BE"
@@ -67,21 +54,6 @@ berge() {
 }
 bn() {
 	git checkout -b $1
-	=======
-	cd () {
-	command cd "$1"
-	clear
-	
-	CURRENT=`pwd`
-	echo -e "\033[36mCurrently in: \033[35m $CURRENT"
-	echo
-	
-	ls
-	echo
-	>>>>>>> 9268d4aeb5171e65e6aae9637ed4f47c441a6089
-}
-bn() {
-	git checkout -b $1
 	cd () {
 	command cd "$1"
 	clear
@@ -123,13 +95,6 @@ ff () {
 }
 gbd() {
 	git branch -D $1
-	=======
-	checknew() {
-	git checkout -b $1
-	>>>>>>> 9268d4aeb5171e65e6aae9637ed4f47c441a6089
-}
-gbd() {
-	git branch -D $1
 	checknew() {
 	git checkout -b $1
 }
@@ -142,11 +107,6 @@ gc() {
 	git commit -m "$1"
 }
 genp() {
-	<<<<<<< HEAD
-	todir $1
-	bash genProto.sh
-}
-genp() {
 	todir $1
 	bash genProto.sh
 }
@@ -157,16 +117,6 @@ genp() {
 gf() {
 	git remote add $1
 	git push origin master
-}
-mergesquash() {
-	>>>>>>> 9268d4aeb5171e65e6aae9637ed4f47c441a6089
-	checknew "$1Merge"
-	git merge --squash "$1"
-	git add .
-	git commit
-	check master
-	git merge "$1Merge"
-	git branch -D "$1Merge"
 }
 mergesquash() {
 	checknew "$1Merge"
