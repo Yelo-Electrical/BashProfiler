@@ -1,3 +1,5 @@
+#Nice work there Bash Profiler! YES!
+#Starting Services
 alias bp="repop && command cd BashProfiler"
 alias e=echo "bash profile_delete"
 alias gop="cd c:/go"

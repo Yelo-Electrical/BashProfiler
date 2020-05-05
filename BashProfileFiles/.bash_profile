@@ -9,8 +9,6 @@
 # My SQL
 # Starting Services
 #Deleted
-#Nice work there Bash Profiler! YES!
-#Starting Services
 alias ab="git push -u origin $1"
 alias b="cd .."
 alias be="yelo && command cd BE"
