@@ -1,5 +1,5 @@
 echo BERGE!
-git pull origin master
+#git pull origin master
 
 echo Backing up old bash profile to ~/BergeSafetyVault
 mkdir -p ~/BergeSafetyVault
@@ -21,10 +21,11 @@ cd ../../build
 ./main.exe
 
 echo Copying .bash_profile back to working directory
-#cp -r ../bashprofilefiles/.bash_profile ~/
+cp -r ../bashprofilefiles/.bash_profile ~/
 
-#echo Pushing up to master
-#git add .
-#git commit -m "Berge!"
-#git push origin master
+echo Pushing up to master
+cd ..
+git add .
+git commit -m "Berge!"
+git push origin master
 echo "Operation complete!"

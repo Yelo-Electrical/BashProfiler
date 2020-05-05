@@ -48,7 +48,7 @@ func (bp *BashProfiler) Pull() error {
 
 	// bashProfile + newBash
 	// merge bashProfile and newBash
-	sort.Strings(bashProfile)
+	bashProfile = bp.makeUnique(bashProfile)
 	sort.Strings(bashProfile)
 	if newBash!=nil {
 		bashProfile = append(bashProfile, bp.getNewCommandsHeader())
@@ -62,6 +62,10 @@ func (bp *BashProfiler) Pull() error {
 	newRepo = bp.aMinusB(newRepo, bp.getGarbage())
 	repo = append(repo, newRepo...)
 
+	// make all commands unique in a set
+	repo = bp.makeUnique(repo)
+	deleted = bp.makeUnique(deleted)
+
 	err = bp.writeBashFiles(repo, bashProfile, deleted)
 	if err != nil {
 		return err
@@ -70,11 +74,25 @@ func (bp *BashProfiler) Pull() error {
 	return nil
 }
 
+func (bp *BashProfiler) makeUnique(d []string) []string {
+	check := make(map[string]int)
+	res := make([]string,0)
+	for _, val := range d {
+		check[val] = 1
+	}
+
+	for letter, _ := range check {
+		res = append(res,letter)
+	}
+
+	return res
+}
+
 func (bp *BashProfiler) splitDeleted(bashProfileRaw string) ([]string, []string, error) {
 	var commandsKeep []string
 	var commandsDelete []string
 	deletedFound := false
-	requests := strings.Split(bashProfileRaw, "\r\n")
+	requests := strings.Split(bashProfileRaw, "\n")
 	for i, c := range requests {
 		if strings.Contains(c, "#Deleted") {
 			commandsKeep = requests[:i]
@@ -124,7 +142,7 @@ func (bp *BashProfiler) getNewCommandsHeader() string {
 func (bp *BashProfiler) getBashProfileFiles(
 	repoRaw string, bashProfileRaw string, deletedRaw string) ([]string, []string, []string, error) {
 	// read repo, bashprofile and bash_profile_deleted into array
-	repo, err := bp.getCommands(strings.Split(repoRaw, "\r\n"))
+	repo, err := bp.getCommands(strings.Split(repoRaw, "\n"))
 	if err != nil {
 		return nil, nil, nil, err
 	}
@@ -145,7 +163,7 @@ func (bp *BashProfiler) getBashProfileFiles(
 
 	// add deleted from bash_profile to bash_profile_deleted
 	// using another error variable for this as we can have nil bash_profile_deleted
-	deleted, errD := bp.getCommands(strings.Split(deletedRaw, "\r\n"))
+	deleted, errD := bp.getCommands(strings.Split(deletedRaw, "\n"))
 	if errD != nil && deleted != nil {
 		return nil, nil, nil, errD
 	}
@@ -216,7 +234,7 @@ func (bp *BashProfiler) writeBashFiles(repo []string, bashProfile []string, dele
 
 	fileOut := ""
 	for _, p := range bashProfile {
-		fileOut +=  p + "\r\n"
+		fileOut +=  p + "\n"
 	}
 	err := ioutil.WriteFile(bash_profile, []byte(fileOut), os.ModePerm)
 	if err != nil {
@@ -226,7 +244,7 @@ func (bp *BashProfiler) writeBashFiles(repo []string, bashProfile []string, dele
 	// write to .bash_profile_delete
 	fileOut = ""
 	for _, p := range deleted {
-		fileOut += p + "\r\n"
+		fileOut += p + "\n"
 	}
 	err = ioutil.WriteFile(bash_profile_deleted, []byte(fileOut), os.ModePerm)
 	if err != nil {
@@ -236,7 +254,7 @@ func (bp *BashProfiler) writeBashFiles(repo []string, bashProfile []string, dele
 	// write to .bash_profile_repo //merge
 	fileOut = ""
 	for _, p := range repo {
-		fileOut += p + "\r\n"
+		fileOut += p + "\n"
 	}
 	err = ioutil.WriteFile(bash_profile_repo, []byte(fileOut), os.ModePerm)
 	if err != nil {
