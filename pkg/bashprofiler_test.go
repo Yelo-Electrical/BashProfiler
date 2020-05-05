@@ -5,12 +5,6 @@ import (
 	"testing"
 )
 
-const (
-	bash_profile_expected = "../bashprofilefiles/expected/.bash_profile"
-	bash_profile_deleted_expected = "../bashprofilefiles/expected/.bash_profile_deleted"
-	bash_profile_repo_expected = "../bashprofilefiles/expected/.bash_profile_repo"
-)
-
 func TestAMinusB(t *testing.T) {
 	bp := &BashProfiler{}
 	tests := []struct {

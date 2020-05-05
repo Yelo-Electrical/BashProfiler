@@ -1,9 +1,10 @@
 echo BERGE!
+git pull origin master
 
 echo Backing up old bash profile to ~/BergeSafetyVault
 mkdir -p ~/BergeSafetyVault
 cp -r ~/.bash_profile ~/BergeSafetyVault
-vaultRename=".bash_profile"+$(date '+%d%m%Y%H%M%S');
+vaultRename=".bash_profile"+$(date '+%Y-%H-%M-%S');
 mv ~/BergeSafetyVault/.bash_profile ~/BergeSafetyVault/$vaultRename
 
 echo Copying uses base bash_profile to working directory BashProfiler
@@ -19,12 +20,11 @@ mv main.exe ../../build
 cd ../../build
 ./main.exe
 
-echo Moving .bash_profile back to working directory
-mv ../bashprofilefiles/.bash_profile ~/
+echo Copying .bash_profile back to working directory
+#cp -r ../bashprofilefiles/.bash_profile ~/
 
-echo Pushing up to master
-git pull origin master
-git add .
-git commit -m "Berge!"
-git push origin master
+#echo Pushing up to master
+#git add .
+#git commit -m "Berge!"
+#git push origin master
 echo "Operation complete!"
