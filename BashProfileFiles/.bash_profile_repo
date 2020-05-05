@@ -96,8 +96,22 @@ bn() {
 bn() {
 	git checkout -b $1
 }
+cd () {
+	command cd "$1"
+	clear
+	
+	CURRENT=`pwd`
+	echo -e "\033[36mCurrently in: \033[35m $CURRENT"
+	echo
+	
+	ls
+	echo
+}
 check() {
 	git checkout $1
+}
+checknew() {
+	git checkout -b $1
 }
 export PATH=$PATH:"C:/Program Files/MySQL/MySQL Workbench 8.0 CE/"
 export PATH=$PATH:C:/Dev/protoc-3.11.4-win64/bin
@@ -134,6 +148,10 @@ genp() {
 }
 genp() {
 	todir $1
+	bash genProto.sh
+}
+genp() {
+	toscripts $1
 	bash genProto.sh
 }
 gf() {
