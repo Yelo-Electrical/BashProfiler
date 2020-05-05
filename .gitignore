@@ -1,4 +1,4 @@
 .idea
-bashprofilescripts/bash_profile_delete
-bashprofilescripts/bash_profile
+BashProfileFiles/.bash_profile_deleted
+BashProfileFiles/.bash_profile
 build/*
