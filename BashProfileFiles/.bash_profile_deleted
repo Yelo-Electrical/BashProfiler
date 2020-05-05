@@ -13,6 +13,7 @@ alias fuckyee="echo 'this works so well'"
 alias gens="todir be && bash genSchema.sh"
 alias gop="cd ~/go"
 alias gp="git push origin master"
+alias grant, get the fuck out
 alias gst="git stash"
 alias home="command cd ~"
 alias la="ls -al"
