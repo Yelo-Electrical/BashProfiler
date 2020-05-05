@@ -1,0 +1,138 @@
+#
+# BERGE
+# Directories
+# Directory
+# Explorer
+# Functions
+# General
+# Git
+# My SQL
+# Starting Services
+#Nice work there Bash Profiler! YES!
+alias ab="git push -u origin $1"
+alias be="yelo && command cd BE"
+alias bp="repo && command cd BashProfiler"
+alias bpc="rbp && bp && cd bashprofilefiles && cp ~/.bash_profile ."
+alias bs="cd bashscripts"
+alias c="clear"
+alias cm="check master"
+alias dev="cd /c/Users/Dell\ XPS/Dev"
+alias dum="yelo && command cd DummyMS"
+alias e="explorer ."
+alias edit="subl ~/.bash_profile"
+alias fresh="source ~/.bash_profile"
+alias gens="todir be && bash genSchema.sh"
+alias gop="cd ~/go"
+alias gp="git push origin master"
+alias gsa="git stash apply"
+alias gst="git stash"
+alias home="command cd ~"
+alias la="ls -al"
+alias malta="repo && command cd Malta2/be"
+alias mas="git checkout master"
+alias ns="netstat -ano"
+alias rbp="bp && rm -rf bashprofilefiles/.bash* && cp backup/.bash_profile_deleted bashprofilefiles/ && cp backup/.bash_profile bashprofilefiles/ && cp backup/.bash_profile_repo bashprofilefiles/"
+alias repo="command cd /c/Users/Dell\ XPS/Dev/Repositories"
+alias res="bp && cp -r ~/BergeSafetyVault/.bash_profile ~/. && cp ~/.bash_profile bashprofilefiles/"
+alias sand="todir be && bash runSandbox.sh"
+alias sh="bash"
+alias sql="mysql -u root -p"
+alias vbp="bp && cat bashprofilefiles/.bash_profile"
+alias vbpd="bp && cat bashprofilefiles/.bash_profile_deleted"
+alias vbpr="bp && cat bashprofilefiles/.bash_profile_repo"
+alias yelo="cd ~/Dev/Repositories/YeloElectrical"
+bn() {
+	git checkout -b $1
+	cd () {
+	command cd "$1"
+	clear
+	
+	CURRENT=`pwd`
+	echo -e "\033[36mCurrently in: \033[35m $CURRENT"
+	echo
+	
+	ls
+	echo
+}
+bn() {
+	git checkout -b $1
+}
+export PATH=$PATH:"C:/Program Files/MySQL/MySQL Workbench 8.0 CE/"
+export PATH=$PATH:C:/Dev/protoc-3.11.4-win64/bin
+f() {
+	grep -R "$1" *
+}
+ff () {
+	grep -R "$1" $2
+}
+gbd() {
+	git branch -D $1
+	checknew() {
+	git checkout -b $1
+}
+gbd() {
+	git branch -D $1
+}
+genp() {
+	todir $1
+	bash genProto.sh
+}
+gf() {
+	git remote add $1
+	git push origin master
+}
+mergesquash() {
+	checknew "$1Merge"
+	git merge --squash "$1"
+	git add .
+	git commit
+	check master
+	git merge "$1Merge"
+	git branch -D "$1Merge"
+}
+ms() {
+	checknew "$1Merge"
+	git merge --squash "$1"
+	git add .
+	git commit
+	check master
+	git merge "$1Merge"
+	git branch -D "$1Merge"
+}
+ms() {
+	toscripts $1
+	bash genProto.sh
+}
+runc () {
+	todir $1
+	bash runClient.sh
+}
+runfe () {
+	todir $1
+	bash runFE.sh
+}
+runs () {
+	todir $1
+	bash runServer.sh
+}
+todir () {
+	cmd=$1
+	case $cmd in
+	'be')
+	be
+	;;
+	'dum')
+	dum
+	;;
+	'malta')
+	malta
+	;;
+	'bp')
+	bp
+	;;
+	esac
+	cd bashscripts
+}
+v() {
+	vim $1
+}
