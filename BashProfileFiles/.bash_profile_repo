@@ -82,6 +82,19 @@ bn() {
 }
 bn() {
 	git checkout -b $1
+	cd () {
+	command cd "$1"
+	clear
+	
+	CURRENT=`pwd`
+	echo -e "\033[36mCurrently in: \033[35m $CURRENT"
+	echo
+	
+	ls
+	echo
+}
+bn() {
+	git checkout -b $1
 }
 check() {
 	git checkout $1
@@ -100,6 +113,11 @@ gbd() {
 	checknew() {
 	git checkout -b $1
 	>>>>>>> 9268d4aeb5171e65e6aae9637ed4f47c441a6089
+}
+gbd() {
+	git branch -D $1
+	checknew() {
+	git checkout -b $1
 }
 gbd() {
 	git branch -D $1
@@ -132,6 +150,15 @@ mergesquash() {
 	git merge "$1Merge"
 	git branch -D "$1Merge"
 }
+mergesquash() {
+	checknew "$1Merge"
+	git merge --squash "$1"
+	git add .
+	git commit
+	check master
+	git merge "$1Merge"
+	git branch -D "$1Merge"
+}
 ms() {
 	=======
 	toscripts $1
@@ -145,6 +172,10 @@ ms() {
 	check master
 	git merge "$1Merge"
 	git branch -D "$1Merge"
+}
+ms() {
+	toscripts $1
+	bash genProto.sh
 }
 o () {
 	subl $1
