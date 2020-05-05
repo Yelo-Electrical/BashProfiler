@@ -50,6 +50,7 @@ alias vbpd="bp && cat bashprofilefiles/.bash_profile_deleted"
 alias vbpr="bp && cat bashprofilefiles/.bash_profile_repo"
 alias yelo="cd ~/Dev/Repositories/YeloElectrical"
 alias yelo="cd ~/Dev/Repositories/YeloElectrical/BE"
+alias yelobe="yelo && cd be"
 berge() {
 	bp
 	cd scripts
