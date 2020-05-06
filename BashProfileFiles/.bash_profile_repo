@@ -1,13 +1,17 @@
 alias ab="git push -u origin $1"
 alias b="cd .."
+alias be="yelo && cd BE"
 alias be="yelo && command cd BE"
 alias bp="repo && command cd BashProfiler"
 alias bp="repop && cd BashProfiler"
+alias bp="yelo && cd BashProfiler"
 alias bpc="rbp && bp && cd bashprofilefiles && cp ~/.bash_profile ."
 alias bs="cd bashscripts"
 alias c="clear"
 alias cm="check master"
 alias dev="cd /c/Users/Dell\ XPS/Dev"
+alias dev="cd ~/Dev"
+alias dum="yelo && cd DummyMS"
 alias dum="yelo && command cd DummyMS"
 alias e="explorer ."
 alias edit="subl ~/.bash_profile"
@@ -38,6 +42,7 @@ alias message="Yooooooooo grant from berge!"
 alias ns="netstat -ano"
 alias rbp="bp && rm -rf bashprofilefiles/.bash* && cp backup/.bash_profile_deleted bashprofilefiles/ && cp backup/.bash_profile bashprofilefiles/ && cp backup/.bash_profile_repo bashprofilefiles/"
 alias refresh="source ~/.bash_profile && clear"
+alias repo="cd ~/Dev/Repositories"
 alias repo="command cd /c/Users/Dell\ XPS/Dev/Repositories"
 alias repop="cd ~/Dev/Repositories"
 alias res="bp && cp -r ~/BergeSafetyVault/.bash_profile ~/. && cp ~/.bash_profile bashprofilefiles/"
@@ -89,6 +94,10 @@ check() {
 }
 checknew() {
 	git checkout -b $1
+}
+cyclo {
+	cd "C:\Program Files\Cypress\TrackPad"
+	./DellDevices.exe
 }
 export PATH=$PATH:"C:/Program Files/MySQL/MySQL Workbench 8.0 CE/"
 export PATH=$PATH:C:/Dev/protoc-3.11.4-win64/bin
@@ -212,4 +221,7 @@ toscripts () {
 }
 v() {
 	vim $1
+}
+w (){
+	echo hello
 }
