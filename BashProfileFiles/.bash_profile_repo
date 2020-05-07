@@ -1,5 +1,6 @@
 alias ab="git push -u origin $1"
 alias b="cd .."
+alias be="cd be"
 alias be="yelo && cd BE"
 alias be="yelo && command cd BE"
 alias bp="repo && command cd BashProfiler"
@@ -15,6 +16,7 @@ alias dum="yelo && cd DummyMS"
 alias dum="yelo && command cd DummyMS"
 alias e="explorer ."
 alias edit="subl ~/.bash_profile"
+alias fe="cd fe"
 alias fresh="source ~/.bash_profile"
 alias fuckyee="echo 'this works so well'"
 alias ga="git add . && clear && git status"
@@ -82,6 +84,10 @@ bn() {
 bn() {
 	git checkout -b $1
 }
+bp() {
+	repo
+	cd BashProfiler $1
+}
 cd () {
 	command cd "$1"
 	clear
@@ -113,6 +119,25 @@ cd () {
 	fi
 	echo
 }
+cd() {
+	dir=$1
+	args=$2
+	
+	command cd $dir
+	clear
+	
+	CURRENT=`pwd`
+	echo -e "\033[36mCurrently in: \033[35m $CURRENT"
+	if [[ $args != '' ]];
+	then
+	echo -e "\033[31m(Showing hidden files and folders)"
+	echo
+	ls -a
+	else
+	echo
+	ls
+	fi
+}
 check() {
 	git checkout $1
 }
@@ -133,6 +158,9 @@ f() {
 	grep -R "$1" *
 }
 ff () {
+	grep -R "$1" $2
+}
+ff() {
 	grep -R "$1" $2
 }
 gbd() {
@@ -162,6 +190,23 @@ genp() {
 gf() {
 	git remote add $1
 	git push origin master
+}
+hf() {
+	repo
+	cd HoneyfrostFinancialSystem $1
+}
+hfbe() {
+	hf
+	be
+}
+hffe() {
+	hf
+	be
+}
+land() {
+	dir=$1
+	eval $dir
+	goland64 . &
 }
 mergesquash() {
 	checknew "$1Merge"
@@ -193,11 +238,21 @@ ms() {
 o () {
 	subl $1
 }
+o() {
+	subl $1
+}
+repo() {
+	cd ~/Dev/Repositories
+}
 runc () {
 	todir $1
 	bash runClient.sh
 }
 runc () {
+	toscripts $1
+	bash runClient.sh
+}
+runc() {
 	toscripts $1
 	bash runClient.sh
 }
@@ -213,6 +268,10 @@ runs () {
 	toscripts $1
 	bash runServer.sh
 }
+runs() {
+	toscripts $1
+	bash runServer.sh
+}
 t () {
 	todir $1
 	cd ../pkg/service
@@ -221,6 +280,11 @@ t () {
 t () {
 	toscripts $1
 	cd ../pkg/service/v1
+	go test
+}
+t() {
+	toscripts $1
+	cd ../pkg/service/v1 $1
 	go test
 }
 todir () {
@@ -255,9 +319,22 @@ toscripts () {
 	
 	cd bashscripts
 }
+toscripts() {
+	dir=$1
+	eval $dir
+	cd bashscripts
+}
 v() {
 	vim $1
 }
 w (){
 	echo hello
+}
+yelo() {
+	repo
+	cd YeloElectrical $1
+}
+yelobe() {
+	yelo
+	be
 }
