@@ -1,3 +1,23 @@
+# cd () {
+	# 	dir=$1
+	# 	args=$2
+	# 	command cd $dir
+	# 	clear
+	
+	# 	CURRENT=`pwd`
+	# 	echo -e "\033[36mCurrently in: \033[35m $CURRENT"
+	
+	# 	if [[ $args != '' ]];
+	# 	then
+	# 	echo -e "\033[31m(Showing hidden files and folders)"
+	# 	echo
+	# 	ls -a
+	# 	else
+	# 	echo
+	# 	ls
+	# 	fi
+	# 	echo
+# }
 alias ab="git push -u origin $1"
 alias b="cd .."
 alias be="cd be"
