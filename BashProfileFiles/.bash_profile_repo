@@ -143,6 +143,26 @@ cd() {
 	dir=$1
 	args=$2
 	
+	clear
+	
+	echo
+	command cd $dir
+	
+	CURRENT=`pwd`
+	echo -e "\033[36mCurrently in: \033[35m $CURRENT"
+	if [[ $args != '' ]];
+	then
+	echo -e "\033[31m(Showing hidden files and folders)"
+	ls -a
+	else
+	ls
+	fi
+	echo
+}
+cd() {
+	dir=$1
+	args=$2
+	
 	command cd $dir
 	clear
 	
