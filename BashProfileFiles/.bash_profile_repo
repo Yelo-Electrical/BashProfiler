@@ -1,105 +1,43 @@
-# cd () {
-	# 	dir=$1
-	# 	args=$2
-	# 	command cd $dir
-	# 	clear
-	
-	# 	CURRENT=`pwd`
-	# 	echo -e "\033[36mCurrently in: \033[35m $CURRENT"
-	
-	# 	if [[ $args != '' ]];
-	# 	then
-	# 	echo -e "\033[31m(Showing hidden files and folders)"
-	# 	echo
-	# 	ls -a
-	# 	else
-	# 	echo
-	# 	ls
-	# 	fi
-	# 	echo
-# }
-alias ab="git push -u origin $1"
 alias b="cd .."
-alias be="cd be"
 alias be="yelo && cd BE"
-alias be="yelo && command cd BE"
-alias bp="repo && command cd BashProfiler"
-alias bp="repop && cd BashProfiler"
 alias bp="yelo && cd BashProfiler"
 alias bpc="rbp && bp && cd bashprofilefiles && cp ~/.bash_profile ."
 alias bs="cd bashscripts"
 alias c="clear"
 alias cm="check master"
-alias dev="cd /c/Users/Dell\ XPS/Dev"
 alias dev="cd ~/Dev"
 alias dum="yelo && cd DummyMS"
-alias dum="yelo && command cd DummyMS"
 alias e="explorer ."
 alias edit="subl ~/.bash_profile"
-alias fe="cd fe"
 alias fresh="source ~/.bash_profile"
-alias fuckyee="echo 'this works so well'"
 alias ga="git add . && clear && git status"
 alias gb="clear && git branch"
-alias gens="todir be && bash genSchema.sh"
-alias gop="cd c:/go"
-alias gop="cd ~/go"
+alias gens="toscripts be && bash genSchema.sh"
 alias gopath="dev && cd go"
-alias gp="git push -u origin $1"
 alias gp="git push origin master"
 alias gr="git rebase $1"
-alias grant, get the fuck out
 alias gs="clear && git status"
 alias gsa="git stash apply"
 alias gst="git stash"
-alias heyGrant="hey hey"
-alias hf="cd ~/Dev/Repositories/HoneyfrostFinancialSystem"
-alias hfbe="hf && cd be"
 alias home="cd ~"
-alias home="command cd ~"
 alias la="ls -a"
 alias la="ls -al"
 alias ll="ls -l"
-alias malta="repo && cd Malta/be"
-alias malta="repo && command cd Malta2/be"
-alias mas="git checkout master"
-alias message="Yooooooooo grant from berge!"
 alias ns="netstat -ano"
-alias r="clear && source ~/.bash_profile"
 alias rbp="bp && rm -rf bashprofilefiles/.bash* && cp backup/.bash_profile_deleted bashprofilefiles/ && cp backup/.bash_profile bashprofilefiles/ && cp backup/.bash_profile_repo bashprofilefiles/"
-alias refresh="source ~/.bash_profile && clear"
 alias repo="cd ~/Dev/Repositories"
-alias repo="command cd /c/Users/Dell\ XPS/Dev/Repositories"
-alias repop="cd ~/Dev/Repositories"
 alias res="bp && cp -r ~/BergeSafetyVault/.bash_profile ~/. && cp ~/.bash_profile bashprofilefiles/"
-alias sand="todir be && bash runSandbox.sh"
 alias sh="bash"
 alias show="explorer ."
-alias sql="mysql -u root -p -h 127.0.0.1 -P 3306"
 alias sql="mysql -u root -p"
 alias vbp="bp && cat bashprofilefiles/.bash_profile"
 alias vbpd="bp && cat bashprofilefiles/.bash_profile_deleted"
 alias vbpr="bp && cat bashprofilefiles/.bash_profile_repo"
 alias yelo="cd ~/Dev/Repositories/YeloElectrical"
-alias yelo="cd ~/Dev/Repositories/YeloElectrical/BE"
-alias yelobe="yelo && cd be"
 berge() {
 	bp
 	cd scripts
 	bash run.sh
-}
-bn() {
-	git checkout -b $1
-	cd () {
-	command cd "$1"
-	clear
-	
-	CURRENT=`pwd`
-	echo -e "\033[36mCurrently in: \033[35m $CURRENT"
-	echo
-	
-	ls
-	echo
 }
 bn() {
 	git checkout -b $1
@@ -108,37 +46,7 @@ bp() {
 	repo
 	cd BashProfiler $1
 }
-cd () {
-	command cd "$1"
-	clear
-	
-	CURRENT=`pwd`
-	echo -e "\033[36mCurrently in: \033[35m $CURRENT"
-	echo
-	
-	ls
-	echo
-}
-cd () {
-	dir=$1
-	args=$2
-	command cd $dir
-	clear
-	
-	CURRENT=`pwd`
-	echo -e "\033[36mCurrently in: \033[35m $CURRENT"
-	
-	if [[ $args != '' ]];
-	then
-	echo -e "\033[31m(Showing hidden files and folders)"
-	echo
-	ls -a
-	else
-	echo
-	ls
-	fi
-	echo
-}
+cd ../pkg/service/v1
 cd() {
 	dir=$1
 	args=$2
@@ -158,31 +66,9 @@ cd() {
 	ls
 	fi
 	echo
-}
-cd() {
-	dir=$1
-	args=$2
-	
-	command cd $dir
-	clear
-	
-	CURRENT=`pwd`
-	echo -e "\033[36mCurrently in: \033[35m $CURRENT"
-	if [[ $args != '' ]];
-	then
-	echo -e "\033[31m(Showing hidden files and folders)"
-	echo
-	ls -a
-	else
-	echo
-	ls
-	fi
 }
 check() {
 	git checkout $1
-}
-checknew() {
-	git checkout -b $1
 }
 cyclo {
 	cd "C:\Program Files\Cypress\TrackPad"
@@ -192,194 +78,51 @@ cyclo() {
 	cd "C:\Program Files\Cypress\TrackPad"
 	./DellDevices.exe
 }
-export PATH=$PATH:"C:/Program Files/MySQL/MySQL Workbench 8.0 CE/"
-export PATH=$PATH:C:/Dev/protoc-3.11.4-win64/bin
 f() {
 	grep -R "$1" *
 }
 ff () {
 	grep -R "$1" $2
 }
-ff() {
-	grep -R "$1" $2
-}
-gbd() {
-	git branch -D $1
-	checknew() {
-	git checkout -b $1
-}
 gbd() {
 	git branch -D $1
 }
 gc() {
-	clear
-	git add .
 	git commit -m "$1"
-}
-gc() {
-	git commit -m "$1"
-}
-genp() {
-	todir $1
-	bash genProto.sh
 }
 genp() {
 	toscripts $1
 	bash genProto.sh
 }
-gf() {
-	git remote add $1
-	git push origin master
-}
-hf() {
-	repo
-	cd HoneyfrostFinancialSystem $1
-}
-hfbe() {
-	hf
-	be
-}
-hffe() {
-	hf
-	be
-}
-hffe() {
-	hf
-	fe
-}
+go test
 land() {
 	dir=$1
 	eval $dir
 	goland64 . &
 }
-mergesquash() {
-	checknew "$1Merge"
-	git merge --squash "$1"
-	git add .
-	git commit
-	check master
-	git merge "$1Merge"
-	git branch -D "$1Merge"
-}
-ms() {
-	=======
-	toscripts $1
-	bash genProto.sh
-}
-ms() {
-	checknew "$1Merge"
-	git merge --squash "$1"
-	git add .
-	git commit
-	check master
-	git merge "$1Merge"
-	git branch -D "$1Merge"
-}
-ms() {
-	toscripts $1
-	bash genProto.sh
-}
 o () {
 	subl $1
 }
-o() {
-	subl $1
-}
-repo() {
-	cd ~/Dev/Repositories
-}
 runc () {
-	todir $1
-	bash runClient.sh
-}
-runc () {
-	toscripts $1
-	bash runClient.sh
-}
-runc() {
 	toscripts $1
 	bash runClient.sh
 }
 runfe () {
-	todir $1
+	toscripts $1
 	bash runFE.sh
 }
 runs () {
-	todir $1
-	bash runServer.sh
-}
-runs () {
 	toscripts $1
 	bash runServer.sh
-}
-runs() {
-	toscripts $1
-	bash runServer.sh
-}
-runsb() {
-	toscripts $1
-	bash runSandbox.sh
 }
 sand() {
 	toscripts $1
 	bash runSandbox.sh
 }
 t () {
-	todir $1
-	cd ../pkg/service
-	go test -failfast
-}
-t () {
 	toscripts $1
 	cd ../pkg/service
 	go test -failfast
-}
-t () {
-	toscripts $1
-	cd ../pkg/service/
-	go test
-}
-t () {
-	toscripts $1
-	cd ../pkg/service/v1
-	go test
-}
-t() {
-	toscripts $1
-	cd ../pkg/service/v1 $1
-	go test
-}
-todir () {
-	cmd=$1
-	case $cmd in
-	'be')
-	be
-	;;
-	'dum')
-	dum
-	;;
-	'malta')
-	malta
-	;;
-	'bp')
-	bp
-	;;
-	esac
-	cd bashscripts
-}
-toscripts () {
-	cmd=$1
-	
-	case $cmd in
-	'hfbe')
-	hfbe
-	;;
-	'yelo')
-	yelo
-	;;
-	esac
-	
-	cd bashscripts
 }
 toscripts() {
 	dir=$1
@@ -389,14 +132,4 @@ toscripts() {
 v() {
 	vim $1
 }
-w (){
-	echo hello
-}
-yelo() {
-	repo
-	cd YeloElectrical $1
-}
-yelobe() {
-	yelo
-	be
 }
