@@ -320,10 +320,24 @@ runsb() {
 	toscripts $1
 	bash runSandbox.sh
 }
+sand() {
+	toscripts $1
+	bash runSandbox.sh
+}
 t () {
 	todir $1
 	cd ../pkg/service
 	go test -failfast
+}
+t () {
+	toscripts $1
+	cd ../pkg/service
+	go test -failfast
+}
+t () {
+	toscripts $1
+	cd ../pkg/service/
+	go test
 }
 t () {
 	toscripts $1
