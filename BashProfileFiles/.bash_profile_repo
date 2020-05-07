@@ -203,6 +203,10 @@ hffe() {
 	hf
 	be
 }
+hffe() {
+	hf
+	fe
+}
 land() {
 	dir=$1
 	eval $dir
