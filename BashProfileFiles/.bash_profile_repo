@@ -22,6 +22,7 @@ alias gb="clear && git branch"
 alias gens="todir be && bash genSchema.sh"
 alias gop="cd c:/go"
 alias gop="cd ~/go"
+alias gopath="dev && cd go"
 alias gp="git push -u origin $1"
 alias gp="git push origin master"
 alias gr="git rebase $1"
@@ -211,6 +212,11 @@ runs () {
 runs () {
 	toscripts $1
 	bash runServer.sh
+}
+t () {
+	todir $1
+	cd ../pkg/service
+	go test -failfast
 }
 t () {
 	toscripts $1
