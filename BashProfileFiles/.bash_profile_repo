@@ -296,6 +296,10 @@ runs() {
 	toscripts $1
 	bash runServer.sh
 }
+runsb() {
+	toscripts $1
+	bash runSandbox.sh
+}
 t () {
 	todir $1
 	cd ../pkg/service
