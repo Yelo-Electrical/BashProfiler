@@ -1,3 +1,4 @@
+#SELECT CONCAT('DROP DATABASE `', SCHEMA_NAME, '`;') FROM `information_schema`.`SCHEMATA` WHERE SCHEMA_NAME LIKE 't%';
 alias b="cd .."
 alias be="cd be"
 alias be="yelo && cd BE"
@@ -7,13 +8,16 @@ alias bs="cd bashscripts"
 alias c="clear"
 alias cm="check master"
 alias dev="cd ~/Dev"
+alias dls="cd ~/Downloads && e"
 alias dum="yelo && cd DummyMS"
 alias e="explorer ."
+alias edit="notepad ~/.bash_profile"
 alias edit="subl ~/.bash_profile"
 alias fe="cd fe"
 alias fresh="source ~/.bash_profile"
 alias ga="git add . && clear && git status"
 alias gb="clear && git branch"
+alias gcf="git add . && git commit -m 'Force commit'"
 alias gens="toscripts be && bash genSchema.sh"
 alias gmv="go mod vendor"
 alias gop="cd c:/go"
@@ -28,6 +32,7 @@ alias home="cd ~"
 alias la="ls -a"
 alias la="ls -al"
 alias ll="ls -l"
+alias notepad="/c/Program\ Files\ \(x86\)/Notepad++/notepad++.exe"
 alias ns="netstat -ano"
 alias r="clear && source ~/.bash_profile"
 alias rbp="bp && rm -rf bashprofilefiles/.bash* && cp backup/.bash_profile_deleted bashprofilefiles/ && cp backup/.bash_profile bashprofilefiles/ && cp backup/.bash_profile_repo bashprofilefiles/"
@@ -40,6 +45,7 @@ alias sql="mysql -u root -p"
 alias vbp="bp && cat bashprofilefiles/.bash_profile"
 alias vbpd="bp && cat bashprofilefiles/.bash_profile_deleted"
 alias vbpr="bp && cat bashprofilefiles/.bash_profile_repo"
+alias vcy="circleci.exe config validate"
 alias yelo="cd ~/Dev/Repositories/YeloElectrical"
 berge() {
 	bp
@@ -141,6 +147,9 @@ mergesquash() {
 	git branch -D "$1Merge"
 }
 o () {
+	notepad $1
+}
+o () {
 	subl $1
 }
 o() {
@@ -182,6 +191,11 @@ t () {
 	cd ../pkg/service
 	go test -failfast
 }
+t () {
+	toscripts $1
+	cd ../pkg/service
+	go test -failfast $2
+}
 t() {
 	toscripts $1
 	cd ../pkg/service $1
@@ -191,6 +205,11 @@ toscripts() {
 	dir=$1
 	eval $dir
 	cd bashscripts
+}
+tt () {
+	toscripts $1
+	cd ../pkg/service
+	go test -run $2
 }
 v() {
 	vim $1

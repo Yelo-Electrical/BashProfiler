@@ -2,7 +2,7 @@ echo BERGE!
 git pull origin master
 
 pwd
-cd ../bashprofilefiles && touch .bash_deleted
+cd ../bashprofilefiles && touch .bash_profile_deleted
 echo Backing up old bash profile to ~/BergeSafetyVault
 mkdir -p ~/BergeSafetyVault
 cp -r ~/.bash_profile ~/BergeSafetyVault
