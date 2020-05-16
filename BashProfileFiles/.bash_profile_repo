@@ -1,4 +1,5 @@
 alias b="cd .."
+alias be="cd be"
 alias be="yelo && cd BE"
 alias bp="yelo && cd BashProfiler"
 alias bpc="rbp && bp && cd bashprofilefiles && cp ~/.bash_profile ."
@@ -9,11 +10,15 @@ alias dev="cd ~/Dev"
 alias dum="yelo && cd DummyMS"
 alias e="explorer ."
 alias edit="subl ~/.bash_profile"
+alias fe="cd fe"
 alias fresh="source ~/.bash_profile"
 alias ga="git add . && clear && git status"
 alias gb="clear && git branch"
 alias gens="toscripts be && bash genSchema.sh"
+alias gmv="go mod vendor"
+alias gop="cd c:/go"
 alias gopath="dev && cd go"
+alias gp="git push -u origin $1"
 alias gp="git push origin master"
 alias gr="git rebase $1"
 alias gs="clear && git status"
@@ -24,11 +29,13 @@ alias la="ls -a"
 alias la="ls -al"
 alias ll="ls -l"
 alias ns="netstat -ano"
+alias r="clear && source ~/.bash_profile"
 alias rbp="bp && rm -rf bashprofilefiles/.bash* && cp backup/.bash_profile_deleted bashprofilefiles/ && cp backup/.bash_profile bashprofilefiles/ && cp backup/.bash_profile_repo bashprofilefiles/"
 alias repo="cd ~/Dev/Repositories"
 alias res="bp && cp -r ~/BergeSafetyVault/.bash_profile ~/. && cp ~/.bash_profile bashprofilefiles/"
 alias sh="bash"
 alias show="explorer ."
+alias sql="mysql -u root -p -h 127.0.0.1 -P 3306"
 alias sql="mysql -u root -p"
 alias vbp="bp && cat bashprofilefiles/.bash_profile"
 alias vbpd="bp && cat bashprofilefiles/.bash_profile_deleted"
@@ -70,6 +77,9 @@ cd() {
 check() {
 	git checkout $1
 }
+checknew() {
+	git checkout -b $1
+}
 cyclo {
 	cd "C:\Program Files\Cypress\TrackPad"
 	./DellDevices.exe
@@ -78,14 +88,23 @@ cyclo() {
 	cd "C:\Program Files\Cypress\TrackPad"
 	./DellDevices.exe
 }
+export USERPROFILE=/d/Users/User/
 f() {
 	grep -R "$1" *
 }
 ff () {
 	grep -R "$1" $2
 }
+ff() {
+	grep -R "$1" $2
+}
 gbd() {
 	git branch -D $1
+}
+gc() {
+	clear
+	git add .
+	git commit -m "$1"
 }
 gc() {
 	git commit -m "$1"
@@ -95,15 +114,46 @@ genp() {
 	bash genProto.sh
 }
 go test
+hf() {
+	repo
+	cd HoneyfrostFinancialSystem $1
+}
+hfbe() {
+	hf
+	be
+}
+hffe() {
+	hf
+	fe
+}
 land() {
 	dir=$1
 	eval $dir
 	goland64 . &
 }
+mergesquash() {
+	checknew "$1Merge"
+	git merge --squash "$1"
+	git add .
+	git commit
+	check master
+	git merge "$1Merge"
+	git branch -D "$1Merge"
+}
 o () {
 	subl $1
 }
+o() {
+	subl $1
+}
+repo() {
+	cd ~/Dev/Repositories
+}
 runc () {
+	toscripts $1
+	bash runClient.sh
+}
+runc() {
 	toscripts $1
 	bash runClient.sh
 }
@@ -115,6 +165,14 @@ runs () {
 	toscripts $1
 	bash runServer.sh
 }
+runs() {
+	toscripts $1
+	bash runServer.sh
+}
+runsb() {
+	toscripts $1
+	bash runSandbox.sh
+}
 sand() {
 	toscripts $1
 	bash runSandbox.sh
@@ -124,6 +182,11 @@ t () {
 	cd ../pkg/service
 	go test -failfast
 }
+t() {
+	toscripts $1
+	cd ../pkg/service $1
+	go test
+}
 toscripts() {
 	dir=$1
 	eval $dir
@@ -131,5 +194,13 @@ toscripts() {
 }
 v() {
 	vim $1
+}
+yelo() {
+	repo
+	cd YeloElectrical $1
+}
+yelobe() {
+	yelo
+	be
 }
 }
