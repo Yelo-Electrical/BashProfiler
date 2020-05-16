@@ -2,6 +2,7 @@ echo BERGE!
 git pull origin master
 
 echo Backing up old bash profile to ~/BergeSafetyVault
+cd ../bashprofilefiles && touch .bash_deleted
 mkdir -p ~/BergeSafetyVault
 cp -r ~/.bash_profile ~/BergeSafetyVault
 vaultRename=".bash_profile"+$(date '+%Y-%H-%M-%S');
