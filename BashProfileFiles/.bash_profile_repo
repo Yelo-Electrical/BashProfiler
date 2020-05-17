@@ -1,4 +1,5 @@
 #SELECT CONCAT('DROP DATABASE `', SCHEMA_NAME, '`;') FROM `information_schema`.`SCHEMATA` WHERE SCHEMA_NAME LIKE 't%';
+alias aww="be && cd bashscripts && bash genWhatsAppToken.sh"
 alias b="cd .."
 alias be="cd be"
 alias be="yelo && cd BE"
@@ -42,6 +43,7 @@ alias sh="bash"
 alias show="explorer ."
 alias sql="mysql -u root -p -h 127.0.0.1 -P 3306"
 alias sql="mysql -u root -p"
+alias temp="cd $TEMP"
 alias vbp="bp && cat bashprofilefiles/.bash_profile"
 alias vbpd="bp && cat bashprofilefiles/.bash_profile_deleted"
 alias vbpr="bp && cat bashprofilefiles/.bash_profile_repo"
@@ -58,6 +60,10 @@ bn() {
 bp() {
 	repo
 	cd BashProfiler $1
+}
+calc() {
+	repo && cd Masks4Africa/Calculator/bashscripts
+	bash Calculate.sh $1 $2 $3
 }
 cd ../pkg/service/v1
 cd() {
@@ -193,6 +199,11 @@ t () {
 }
 t () {
 	toscripts $1
+	cd ../pkg/service
+	go test -failfast $2
+}
+t () {
+	toscripts $6
 	cd ../pkg/service
 	go test -failfast $2
 }
