@@ -1,3 +1,4 @@
+# fixgit=git remote -v && git remote set-url origin git@github.com:yourname/yourrepo.git &&
 #SELECT CONCAT('DROP DATABASE `', SCHEMA_NAME, '`;') FROM `information_schema`.`SCHEMATA` WHERE SCHEMA_NAME LIKE 't%';
 alias aww="be && cd bashscripts && bash genWhatsAppToken.sh"
 alias b="cd .."
