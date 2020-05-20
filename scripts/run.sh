@@ -25,9 +25,17 @@ cd ../../build
 echo Copying .bash_profile back to working directory
 cp -r ../bashprofilefiles/.bash_profile ~/
 
-echo Pushing up to master
-cd ..
-git add .
-git commit -m "Berge!"
-git push origin master
-echo "Operation complete!"
+
+if [ -z $1]
+then
+	echo "Not pushing to master"
+else
+	echo Pushing up to master
+	cd ..
+	git add .
+	git commit -m "Berge!"
+	git push origin master
+	echo "Operation complete!"
+fi
+
+

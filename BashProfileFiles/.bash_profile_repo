@@ -62,6 +62,11 @@ berge() {
 	cd scripts
 	bash run.sh
 }
+berge() {
+	bp
+	cd scripts
+	bash run.sh $1
+}
 bn() {
 	git checkout -b $1
 }
@@ -187,7 +192,11 @@ runcgo() {
 }
 runcvs() {
 	todebugclient $1
-./${foldername}Client.exe
+	./${foldername}Client.exe
+	runfe () {
+	toscripts $1
+	bash runFE.sh
+}
 runfe () {
 	toscripts $1
 	bash runFE.sh
@@ -264,7 +273,12 @@ todebugclient() {
 	foldername=$(echo "$filename" | cut -f 1 -d '.')
 	
 	# CD to debug
-cd ./${foldername}Client/bin/Debug
+	cd ./${foldername}Client/bin/Debug
+	toscripts() {
+	dir=$1
+	eval $dir
+	cd bashscripts
+}
 toscripts() {
 	dir=$1
 	eval $dir

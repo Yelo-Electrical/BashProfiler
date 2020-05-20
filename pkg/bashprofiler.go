@@ -201,10 +201,12 @@ func (bp *BashProfiler) getCommands (requests []string) ([]string, error) {
 		} else if isReadingCommand{
 			// ending a multi-line command
 			if strings.Contains(c, "}") {
-				bashCommand += "\n" + c
-				isReadingCommand = false
-				commands = append(commands, bashCommand)
-				continue
+				if !strings.Contains(c, "$") {
+					bashCommand += "\n" + c
+					isReadingCommand = false
+					commands = append(commands, bashCommand)
+					continue					
+				}
 			}
 			bashCommand += "\n\t"+c
 		} else {
