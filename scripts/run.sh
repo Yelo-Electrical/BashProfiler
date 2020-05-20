@@ -26,7 +26,7 @@ echo Copying .bash_profile back to working directory
 cp -r ../bashprofilefiles/.bash_profile ~/
 
 
-if [ -z $1]
+if [ -z $1 ]
 then
 	echo "Not pushing to master"
 else
