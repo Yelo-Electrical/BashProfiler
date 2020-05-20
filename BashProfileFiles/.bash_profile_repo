@@ -191,6 +191,10 @@ runcgo() {
 	bash runClient.sh
 }
 runcvs() {
+	todebug $1 -client
+	./${foldername}Client.exe
+}
+runcvs() {
 	todebugclient $1
 	./${foldername}Client.exe
 	runfe () {
@@ -260,6 +264,23 @@ todebug() {
 	
 	# CD to debug
 	cd ./$foldername/bin/Debug
+	# If .NET Core App
+	cd ./netcoreapp3.1
+}
+todebug() {
+	# Evaluate to dir
+	dir=$1
+	eval $dir
+	# Get Foldername of solution
+	filename=*.sln
+	foldername=$(echo "$filename" | cut -f 1 -d '.')
+	# CD to debug. CD to debug client if args
+	if [ -z $2 ]
+	then
+	cd ./${foldername}/bin/Debug
+	else
+	cd ./${foldername}Client/bin/Debug
+	fi
 	# If .NET Core App
 	cd ./netcoreapp3.1
 }
