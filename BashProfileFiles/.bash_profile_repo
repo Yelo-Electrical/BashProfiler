@@ -1,6 +1,8 @@
+# If .NET Core App
 # fixgit=git remote -v && git remote set-url origin git@github.com:yourname/yourrepo.git &&
 #SELECT CONCAT('DROP DATABASE `', SCHEMA_NAME, '`;') FROM `information_schema`.`SCHEMATA` WHERE SCHEMA_NAME LIKE 't%';
 alias aww="be && cd bashscripts && bash genWhatsAppToken.sh"
+alias aww="yelobe && cd bashscripts && bash genWhatsAppToken.sh"
 alias b="cd .."
 alias be="cd be"
 alias be="yelo && cd BE"
@@ -19,6 +21,7 @@ alias fe="cd fe"
 alias fresh="source ~/.bash_profile"
 alias ga="git add . && clear && git status"
 alias gb="clear && git branch"
+alias gbd="git branch -D $1"
 alias gcf="git add . && git commit -m 'Force commit'"
 alias gens="toscripts be && bash genSchema.sh"
 alias gln="find . -name '*.*' | xargs wc -l"
@@ -38,6 +41,7 @@ alias la="ls -al"
 alias ll="ls -l"
 alias notepad="/c/Program\ Files\ \(x86\)/Notepad++/notepad++.exe"
 alias ns="netstat -ano"
+alias pf="cd PayFast"
 alias r="clear && source ~/.bash_profile"
 alias rbp="bp && rm -rf bashprofilefiles/.bash* && cp backup/.bash_profile_deleted bashprofilefiles/ && cp backup/.bash_profile bashprofilefiles/ && cp backup/.bash_profile_repo bashprofilefiles/"
 alias repo="cd ~/Dev/Repositories"
@@ -69,6 +73,7 @@ calc() {
 	bash Calculate.sh $1 $2 $3
 }
 cd ../pkg/service/v1
+cd ./netcoreapp3.1
 cd() {
 	dir=$1
 	args=$2
@@ -175,6 +180,13 @@ runc() {
 	toscripts $1
 	bash runClient.sh
 }
+runcgo() {
+	toscripts $1
+	bash runClient.sh
+}
+runcvs() {
+	todebugclient $1
+./${foldername}Client.exe
 runfe () {
 	toscripts $1
 	bash runFE.sh
@@ -190,6 +202,18 @@ runs() {
 runsb() {
 	toscripts $1
 	bash runSandbox.sh
+}
+runsbgo() {
+	toscripts $1
+	bash runSandbox.sh
+}
+runsgo() {
+	toscripts $1
+	bash runServer.sh
+}
+runsvs() {
+	todebug $1
+	./$foldername.exe
 }
 sand() {
 	toscripts $1
@@ -215,6 +239,31 @@ t() {
 	cd ../pkg/service $1
 	go test
 }
+todebug() {
+	# Evaluate to dir
+	dir=$1
+	eval $dir
+	
+	# Get Foldername of solution
+	filename=*.sln
+	foldername=$(echo "$filename" | cut -f 1 -d '.')
+	
+	# CD to debug
+	cd ./$foldername/bin/Debug
+	# If .NET Core App
+	cd ./netcoreapp3.1
+}
+todebugclient() {
+	# Evaluate to dir
+	dir=$1
+	eval $dir
+	
+	# Get Foldername of solution
+	filename=*.sln
+	foldername=$(echo "$filename" | cut -f 1 -d '.')
+	
+	# CD to debug
+cd ./${foldername}Client/bin/Debug
 toscripts() {
 	dir=$1
 	eval $dir
@@ -228,6 +277,16 @@ tt () {
 v() {
 	vim $1
 }
+vs() {
+	dir=$1
+	eval $dir
+	
+	file=*.sln
+	echo -e "\033[36mOpening solution: \033[35m"
+	echo $file
+	
+	devenv $file &
+}
 yelo() {
 	repo
 	cd YeloElectrical $1
@@ -235,5 +294,9 @@ yelo() {
 yelobe() {
 	yelo
 	be
+}
+yelopf() {
+	yelo
+	pf
 }
 }
