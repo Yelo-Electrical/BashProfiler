@@ -195,6 +195,10 @@ runcvs() {
 	./${foldername}Client.exe
 }
 runcvs() {
+	todebug $1 -client
+	dotnet ./${filename}Client.dll
+}
+runcvs() {
 	todebugclient $1
 	./${foldername}Client.exe
 	runfe () {
@@ -228,6 +232,10 @@ runsgo() {
 runsvs() {
 	todebug $1
 	./$foldername.exe
+}
+runsvs() {
+	todebug $1
+	dotnet ${filename}.dll
 }
 sand() {
 	toscripts $1
@@ -280,6 +288,27 @@ todebug() {
 	cd ./${foldername}/bin/Debug
 	else
 	cd ./${foldername}Client/bin/Debug
+	fi
+	# If .NET Core App
+	cd ./netcoreapp3.1
+}
+todebug() {
+	# Evaluate to dir
+	dir=$1
+	eval $dir
+	# Get sln names
+	fullfile=$(find . -type f -name "*.sln")
+	filename=$(basename -- "$fullfile")
+	extension="${filename##*.}"
+	filename="${filename%.*}"
+	# Build solution
+	dotnet build .
+	# CD to debug. CD to debug client if args
+	if [ -z $2 ]
+	then
+	cd ./${filename}/bin/Debug
+	else
+	cd ./${filename}Client/bin/Debug
 	fi
 	# If .NET Core App
 	cd ./netcoreapp3.1
