@@ -16,6 +16,7 @@ alias dev="cd ~/Dev"
 alias dls="cd ~/Downloads && e"
 alias dum="yelo && cd DummyMS"
 alias e="explorer ."
+alias edit="notepad ~/.bash_profile &"
 alias edit="notepad ~/.bash_profile"
 alias edit="subl ~/.bash_profile"
 alias fe="cd fe"
@@ -73,6 +74,10 @@ bn() {
 bp() {
 	repo
 	cd BashProfiler $1
+}
+calb() {
+	repo && cd Masks4Africa/Calculator/bashscripts
+	bash CalBoth.sh $1 $2 $3
 }
 calc() {
 	repo && cd Masks4Africa/Calculator/bashscripts
@@ -170,6 +175,9 @@ o () {
 	notepad $1
 }
 o () {
+	notepad $1 &
+}
+o () {
 	subl $1
 }
 o() {
@@ -240,6 +248,11 @@ runsvs() {
 sand() {
 	toscripts $1
 	bash runSandbox.sh
+}
+t () {
+	toscripts $1
+	cd ../pkg && cd service
+	go test -failfast $2
 }
 t () {
 	toscripts $1
