@@ -83,8 +83,32 @@ calc() {
 	repo && cd Masks4Africa/Calculator/bashscripts
 	bash Calculate.sh $1 $2 $3
 }
+calc() {
+	repo && cd Masks4Africa/StockCalculator/bashscripts
+	bash Calculate.sh $1 $2 $3
+}
 cd ../pkg/service/v1
 cd ./netcoreapp3.1
+cd() {
+	dir=$1
+	args=$2
+	
+	clear
+	
+	echo
+	command cd "$dir"
+	
+	CURRENT=`pwd`
+	echo -e "\033[36mCurrently in: \033[35m $CURRENT"
+	if [[ $args != '' ]];
+	then
+	echo -e "\033[31m(Showing hidden files and folders)"
+	ls -a
+	else
+	ls
+	fi
+	echo
+}
 cd() {
 	dir=$1
 	args=$2
@@ -161,6 +185,10 @@ land() {
 	dir=$1
 	eval $dir
 	goland64 . &
+}
+mc() {
+	cd "$LOCALAPPDATA"
+	cd "./Packages/Microsoft.MinecraftUWP_8wekyb3d8bbwe/LocalState/games/com.mojang"
 }
 mergesquash() {
 	checknew "$1Merge"
@@ -244,6 +272,10 @@ runsvs() {
 runsvs() {
 	todebug $1
 	dotnet ${filename}.dll
+}
+runsvs() {
+	todebug $1
+	dotnet ${filename}Server.dll
 }
 sand() {
 	toscripts $1
@@ -364,6 +396,11 @@ vs() {
 	echo $file
 	
 	devenv $file &
+}
+vsc() {
+	dir=$1
+	eval $dir
+	code . &
 }
 yelo() {
 	repo
