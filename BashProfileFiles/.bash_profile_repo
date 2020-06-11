@@ -87,6 +87,10 @@ calc() {
 	repo && cd Masks4Africa/StockCalculator/bashscripts
 	bash Calculate.sh $1 $2 $3
 }
+calc() {
+	repo && cd Masks4Africa/StockCalculator/bashscripts
+	bash Calculate.sh $1 $2 $3 $4
+}
 cd ../pkg/service/v1
 cd ./netcoreapp3.1
 cd() {
@@ -199,6 +203,26 @@ mergesquash() {
 	git merge "$1Merge"
 	git branch -D "$1Merge"
 }
+mfa() {
+	repo
+	cd "Masks for Africa" $1
+}
+mfabot() {
+	mfa
+	cd ./LinkedInBot $1
+}
+mfacal() {
+	mfa
+	cd ./StockCalculator $1
+}
+mfares() {
+	mfa
+	cd ./Resources $1
+}
+mfaserv() {
+	mfa
+	cd ./ServiceAgreementGenerator $1
+}
 o () {
 	notepad $1
 }
@@ -244,6 +268,10 @@ runcvs() {
 runfe () {
 	toscripts $1
 	bash runFE.sh
+}
+rungo() {
+	toscripts $1
+	bash run.sh
 }
 runs () {
 	toscripts $1
