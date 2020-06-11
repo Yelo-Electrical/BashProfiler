@@ -1,6 +1,11 @@
 # If .NET Core App
+# To only view your unread mail in primary gmail inbox, put this in your search bar: in: category:primary is:unread
 # fixgit=git remote -v && git remote set-url origin git@github.com:yourname/yourrepo.git &&
 #SELECT CONCAT('DROP DATABASE `', SCHEMA_NAME, '`;') FROM `information_schema`.`SCHEMATA` WHERE SCHEMA_NAME LIKE 't%';
+abpath(){
+	echo "it
+	"
+}
 alias aww="be && cd bashscripts && bash genWhatsAppToken.sh"
 alias aww="yelobe && cd bashscripts && bash genWhatsAppToken.sh"
 alias b="cd .."
@@ -41,6 +46,7 @@ alias home="cd ~"
 alias la="ls -a"
 alias la="ls -al"
 alias ll="ls -l"
+alias mas="repo && cd Masks4Africa"
 alias notepad="/c/Program\ Files\ \(x86\)/Notepad++/notepad++.exe"
 alias ns="netstat -ano"
 alias pf="cd PayFast"
@@ -83,6 +89,10 @@ calc() {
 	repo && cd Masks4Africa/Calculator/bashscripts
 	bash Calculate.sh $1 $2 $3
 }
+calc() {
+	repo && cd Masks4Africa/Calculator/bashscripts
+	bash Calculate.sh $1 $2 $3 $4
+}
 cd ../pkg/service/v1
 cd ./netcoreapp3.1
 cd() {
@@ -104,6 +114,10 @@ cd() {
 	ls
 	fi
 	echo
+}
+cgp() {
+	c && gcf && gp && echo -e "\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+	echo -e "\n\n\n\n\n\n\n\n\n\n\n\t\t\t Ready ->"
 }
 check() {
 	git checkout $1
@@ -237,6 +251,10 @@ runsgo() {
 	toscripts $1
 	bash runServer.sh
 }
+runsgo() {
+	toscripts $1
+	bash runServer.sh $2
+}
 runsvs() {
 	todebug $1
 	./$foldername.exe
@@ -248,6 +266,10 @@ runsvs() {
 sand() {
 	toscripts $1
 	bash runSandbox.sh
+}
+src () {
+	toscripts $1
+	cd ../pkg/service
 }
 t () {
 	toscripts $1
@@ -265,6 +287,14 @@ t () {
 	go test -failfast $2
 }
 t () {
+	toscripts $1
+	sh runTest.sh
+}
+t () {
+	toscripts $1
+	sh runTests.sh
+}
+t () {
 	toscripts $6
 	cd ../pkg/service
 	go test -failfast $2
@@ -273,6 +303,10 @@ t() {
 	toscripts $1
 	cd ../pkg/service $1
 	go test
+}
+teest () {
+	toscripts $1
+	sh runTests.sh
 }
 todebug() {
 	# Evaluate to dir
