@@ -86,6 +86,13 @@ calb() {
 	bash CalBoth.sh $1 $2 $3
 }
 calc() {
+	<<<<<<< HEAD
+	repo && cd Masks4Africa/Calculator/bashscripts
+	=======
+	repo && cd Masks4Africa/StockCalculator/bashscripts
+	bash Calculate.sh $1 $2 $3
+}
+calc() {
 	repo && cd Masks4Africa/Calculator/bashscripts
 	bash Calculate.sh $1 $2 $3
 }
@@ -93,8 +100,33 @@ calc() {
 	repo && cd Masks4Africa/Calculator/bashscripts
 	bash Calculate.sh $1 $2 $3 $4
 }
+calc() {
+	repo && cd Masks4Africa/StockCalculator/bashscripts
+	>>>>>>> 13e340575e4f4ddf45c77d846d8e9e6257908e55
+	bash Calculate.sh $1 $2 $3 $4
+}
 cd ../pkg/service/v1
 cd ./netcoreapp3.1
+cd() {
+	dir=$1
+	args=$2
+	
+	clear
+	
+	echo
+	command cd "$dir"
+	
+	CURRENT=`pwd`
+	echo -e "\033[36mCurrently in: \033[35m $CURRENT"
+	if [[ $args != '' ]];
+	then
+	echo -e "\033[31m(Showing hidden files and folders)"
+	ls -a
+	else
+	ls
+	fi
+	echo
+}
 cd() {
 	dir=$1
 	args=$2
@@ -176,6 +208,10 @@ land() {
 	eval $dir
 	goland64 . &
 }
+mc() {
+	cd "$LOCALAPPDATA"
+	cd "./Packages/Microsoft.MinecraftUWP_8wekyb3d8bbwe/LocalState/games/com.mojang"
+}
 mergesquash() {
 	checknew "$1Merge"
 	git merge --squash "$1"
@@ -184,6 +220,26 @@ mergesquash() {
 	check master
 	git merge "$1Merge"
 	git branch -D "$1Merge"
+}
+mfa() {
+	repo
+	cd "Masks for Africa" $1
+}
+mfabot() {
+	mfa
+	cd ./LinkedInBot $1
+}
+mfacal() {
+	mfa
+	cd ./StockCalculator $1
+}
+mfares() {
+	mfa
+	cd ./Resources $1
+}
+mfaserv() {
+	mfa
+	cd ./ServiceAgreementGenerator $1
 }
 o () {
 	notepad $1
@@ -231,6 +287,10 @@ runfe () {
 	toscripts $1
 	bash runFE.sh
 }
+rungo() {
+	toscripts $1
+	bash run.sh
+}
 runs () {
 	toscripts $1
 	bash runServer.sh
@@ -262,6 +322,10 @@ runsvs() {
 runsvs() {
 	todebug $1
 	dotnet ${filename}.dll
+}
+runsvs() {
+	todebug $1
+	dotnet ${filename}Server.dll
 }
 sand() {
 	toscripts $1
@@ -398,6 +462,11 @@ vs() {
 	echo $file
 	
 	devenv $file &
+}
+vsc() {
+	dir=$1
+	eval $dir
+	code . &
 }
 yelo() {
 	repo
