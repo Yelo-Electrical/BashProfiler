@@ -63,6 +63,8 @@ alias vbp="bp && cat bashprofilefiles/.bash_profile"
 alias vbpd="bp && cat bashprofilefiles/.bash_profile_deleted"
 alias vbpr="bp && cat bashprofilefiles/.bash_profile_repo"
 alias vcy="circleci.exe config validate"
+alias vcz= Echo "I am new and I am an easter e"
+alias vcz= Echo "I am new and I am an easter egg"
 alias yelo="cd ~/Dev/Repositories/YeloElectrical"
 berge() {
 	bp
@@ -206,6 +208,7 @@ hffe() {
 	hf
 	fe
 }
+l
 land() {
 	dir=$1
 	eval $dir

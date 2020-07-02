@@ -53,12 +53,7 @@ func (bp *BashProfiler) Pull() error {
 	bashProfile = bp.makeUnique(bashProfile)
 	sort.Strings(bashProfile)
 	if newBash!=nil {
-		var comment string
-		if len(os.Args) == 2 {
-			comment = os.Args[1]
-		} else {
-			comment = bp.getNewCommandsHeader()
-		}
+		comment := bp.getNewCommandsHeader()
 		bashProfile = append(bashProfile, comment)
 	}
 	bashProfile = append(bashProfile, newBash...)
@@ -134,13 +129,13 @@ func (bp *BashProfiler) aMinusB(a []string, b []string) []string {
 	return rs
 }
 
-func (bp *BashProfiler) SaveHeaderName(header string) {
+func (bp *BashProfiler) SaveHeaderName() {
 	// get body and append new message
 	b, err := ioutil.ReadFile("headers.txt")
 	if err != nil {
 		log.Fatalf(err.Error())
 	}
-	b = []byte(string(b) + os.Args[1])
+	b = []byte(string(b) + "\n#" + os.Args[1])
 
 	// write the whole body at once
 	if len(os.Args) == 2 {
@@ -152,17 +147,17 @@ func (bp *BashProfiler) SaveHeaderName(header string) {
 }
 
 func (bp *BashProfiler) getNewCommandsHeader() string {
-	s := []string{
-		"#New commands for sweet, sweet Bash Profiler",
-		"#Oh yes baby! New commands swinging in from Bash Profiler",
-		"#Bash profiler! Sweet, new commands",
-		"#YES! Getting those new commands baby Bash Profiler!",
-		"#Oh my gosh, yes. This is sweet. New commands! Bash Profiler!",
-		"#New commands! Bash Profiler! Yes!",
-		"#Nice work there Bash Profiler! YES!",
-	}
-	rand.Seed(int64(time.Now().Minute()))
-	return "\n" + s[rand.Intn(len(s))]
+		bp.SaveHeaderName()
+
+		// get body and append new message
+		b, err := ioutil.ReadFile("headers.txt")
+		if err != nil {
+			log.Fatalf(err.Error())
+		}
+
+		rand.Seed(int64(time.Now().Minute()))
+		Headers := strings.Split(string(b), "\n")
+		return  Headers[rand.Intn(len(Headers))]
 }
 
 func (bp *BashProfiler) getBashProfileFiles(
