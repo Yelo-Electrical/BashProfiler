@@ -33,6 +33,7 @@ alias gcf="git add . && git commit -m 'Force commit'"
 alias gens="toscripts be && bash genSchema.sh"
 alias gln="find . -name '*.*' | xargs wc -l"
 alias gln="find . -name '*.go' | xargs wc -l"
+alias gln="find . -name '*.mcfunction' | xargs wc -l"
 alias gmv="go mod vendor"
 alias gop="cd c:/go"
 alias gopath="dev && cd go"
@@ -105,6 +106,10 @@ calc() {
 calc() {
 	repo && cd Masks4Africa/StockCalculator/bashscripts
 	>>>>>>> 13e340575e4f4ddf45c77d846d8e9e6257908e55
+	bash Calculate.sh $1 $2 $3 $4
+}
+calc() {
+	repo && cd Masks4Africa/StockCalculator/bashscripts
 	bash Calculate.sh $1 $2 $3 $4
 }
 cd ../pkg/service/v1
