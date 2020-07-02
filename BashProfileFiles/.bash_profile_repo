@@ -66,6 +66,7 @@ alias vbpr="bp && cat bashprofilefiles/.bash_profile_repo"
 alias vcy="circleci.exe config validate"
 alias vcz= Echo "I am new and I am an easter e"
 alias vcz= Echo "I am new and I am an easter egg"
+alias vcz= Echo "I am new and I am an easter egg, Now I am working and is real egg"
 alias yelo="cd ~/Dev/Repositories/YeloElectrical"
 berge() {
 	bp

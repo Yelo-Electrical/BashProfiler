@@ -131,7 +131,7 @@ func (bp *BashProfiler) aMinusB(a []string, b []string) []string {
 
 func (bp *BashProfiler) SaveHeaderName() {
 	// get body and append new message
-	b, err := ioutil.ReadFile("headers.txt")
+	b, err := ioutil.ReadFile("../headers.txt")
 	if err != nil {
 		log.Fatalf(err.Error())
 	}
@@ -139,7 +139,7 @@ func (bp *BashProfiler) SaveHeaderName() {
 
 	// write the whole body at once
 	if len(os.Args) == 2 {
-		err = ioutil.WriteFile("headers.txt", b, 0644)
+		err = ioutil.WriteFile("../headers.txt", b, 0644)
 		if err != nil {
 			panic(err)
 		}
@@ -150,7 +150,7 @@ func (bp *BashProfiler) getNewCommandsHeader() string {
 		bp.SaveHeaderName()
 
 		// get body and append new message
-		b, err := ioutil.ReadFile("headers.txt")
+		b, err := ioutil.ReadFile("../headers.txt")
 		if err != nil {
 			log.Fatalf(err.Error())
 		}
