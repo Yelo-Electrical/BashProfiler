@@ -20,11 +20,10 @@ cd pkg/main
 go build .
 mv main.exe ../../build
 cd ../../build
-./main.exe
+./main.exe $1
 
 echo Copying .bash_profile back to working directory
 cp -r ../bashprofilefiles/.bash_profile ~/
-
 
 if [ -z $1 ]
 then
@@ -37,5 +36,4 @@ else
 	git push origin master
 	echo "Operation complete!"
 fi
-
 

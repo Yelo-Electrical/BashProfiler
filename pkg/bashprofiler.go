@@ -2,6 +2,7 @@ package pkg
 
 import (
 	"io/ioutil"
+	"log"
 	"math/rand"
 	"os"
 	"sort"
@@ -52,7 +53,13 @@ func (bp *BashProfiler) Pull() error {
 	bashProfile = bp.makeUnique(bashProfile)
 	sort.Strings(bashProfile)
 	if newBash!=nil {
-		bashProfile = append(bashProfile, bp.getNewCommandsHeader())
+		var comment string
+		if len(os.Args) == 2 {
+			comment = os.Args[1]
+		} else {
+			comment = bp.getNewCommandsHeader()
+		}
+		bashProfile = append(bashProfile, comment)
 	}
 	bashProfile = append(bashProfile, newBash...)
 	bashProfile = append(bashProfile, "\n#Deleted")
@@ -125,6 +132,23 @@ func (bp *BashProfiler) aMinusB(a []string, b []string) []string {
 		}
 	}
 	return rs
+}
+
+func (bp *BashProfiler) SaveHeaderName(header string) {
+	// get body and append new message
+	b, err := ioutil.ReadFile("headers.txt")
+	if err != nil {
+		log.Fatalf(err.Error())
+	}
+	b = []byte(string(b) + os.Args[1])
+
+	// write the whole body at once
+	if len(os.Args) == 2 {
+		err = ioutil.WriteFile("headers.txt", b, 0644)
+		if err != nil {
+			panic(err)
+		}
+	}
 }
 
 func (bp *BashProfiler) getNewCommandsHeader() string {

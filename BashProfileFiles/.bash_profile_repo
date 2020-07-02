@@ -178,6 +178,9 @@ ff() {
 gbd() {
 	git branch -D $1
 }
+gbn() {
+	git branch $1
+}
 gc() {
 	clear
 	git add .
@@ -224,6 +227,10 @@ mergesquash() {
 mfa() {
 	repo
 	cd "Masks for Africa" $1
+}
+mfa() {
+	repo
+	cd "Masks4Africa" $1
 }
 mfabot() {
 	mfa
