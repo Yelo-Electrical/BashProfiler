@@ -135,10 +135,10 @@ func (bp *BashProfiler) SaveHeaderName() {
 	if err != nil {
 		log.Fatalf(err.Error())
 	}
-	b = []byte(string(b) + "\n#" + os.Args[1])
 
-	// write the whole body at once
 	if len(os.Args) == 2 {
+		// write the whole body at once
+		b = []byte(string(b) + "\n#" + os.Args[1])
 		err = ioutil.WriteFile("../headers.txt", b, 0644)
 		if err != nil {
 			panic(err)
