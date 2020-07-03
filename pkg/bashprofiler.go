@@ -1,6 +1,8 @@
 package pkg
 
 import (
+	"bufio"
+	"fmt"
 	"io/ioutil"
 	"log"
 	"math/rand"
@@ -52,8 +54,8 @@ func (bp *BashProfiler) Pull() error {
 	// merge bashProfile and newBash
 	bashProfile = bp.makeUnique(bashProfile)
 	sort.Strings(bashProfile)
+	comment := bp.getNewCommandsHeader()
 	if newBash!=nil {
-		comment := bp.getNewCommandsHeader()
 		bashProfile = append(bashProfile, comment)
 	}
 	bashProfile = append(bashProfile, newBash...)
@@ -136,9 +138,13 @@ func (bp *BashProfiler) SaveHeaderName() {
 		log.Fatalf(err.Error())
 	}
 
-	if len(os.Args) == 2 {
-		// write the whole body at once
-		b = []byte(string(b) + "\n#" + os.Args[1])
+	// write the whole body at once
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("\n\nWhats on your mind dude? \n")
+	message, _ := reader.ReadString('\n')
+
+	if message != "" {
+		b = []byte(string(b) + "\n#" + message)
 		err = ioutil.WriteFile("../headers.txt", b, 0644)
 		if err != nil {
 			panic(err)
