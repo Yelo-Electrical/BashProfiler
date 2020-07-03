@@ -1,11 +1,3 @@
-#New commands for sweet, sweet Bash Profiler
-#Oh yes baby! New commands swinging in from Bash Profiler
-#Bash profiler! Sweet, new commands
-#YES! Getting those new commands baby Bash Profiler!
-#Oh my gosh, yes. This is sweet. New commands! Bash Profiler!
-#New commands! Bash Profiler! Yes!
-#Nice work there Bash Profiler! YES!
-#This_one-is_for_the_boys.
-#thisbisbSO,_Sweet)thankss!
-#This0is9Nice!
-#This is workinggg!
+#Let's go!
+
+#
