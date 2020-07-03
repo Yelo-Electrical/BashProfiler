@@ -54,8 +54,8 @@ func (bp *BashProfiler) Pull() error {
 	// merge bashProfile and newBash
 	bashProfile = bp.makeUnique(bashProfile)
 	sort.Strings(bashProfile)
+	comment := bp.getNewCommandsHeader()
 	if newBash!=nil {
-		comment := bp.getNewCommandsHeader()
 		bashProfile = append(bashProfile, comment)
 	}
 	bashProfile = append(bashProfile, newBash...)
