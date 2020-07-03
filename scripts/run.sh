@@ -30,10 +30,10 @@ then
 	echo "Not pushing to master"
 else
 	echo Pushing up to master
-#	cd ..
-#	git add .
-#	git commit -m "Berge!"
-#	git push origin master
-#	echo "Operation complete!"
+	cd ..
+	git add .
+	git commit -m "Berge!"
+	git push origin master
+	echo "Operation complete!"
 fi
 
