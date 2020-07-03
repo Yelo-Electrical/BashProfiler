@@ -1,8 +1,10 @@
 # If .NET Core App
 # To only view your unread mail in primary gmail inbox, put this in your search bar: in: category:primary is:unread
 # fixgit=git remote -v && git remote set-url origin git@github.com:yourname/yourrepo.git &&
+#Lets
 #Nothing, get out of my face!
 #SELECT CONCAT('DROP DATABASE `', SCHEMA_NAME, '`;') FROM `information_schema`.`SCHEMATA` WHERE SCHEMA_NAME LIKE 't%';
+#This0is9Nice!
 #This_one-is_for_the_boys.
 #thisbisbSO,_Sweet)thankss!
 abpath(){
@@ -100,6 +102,10 @@ calb() {
 calc() {
 	repo && cd Masks4Africa/StockCalculator/bashscripts
 	bash Calculate.sh $1 $2 $3
+}
+calc() {
+	repo && cd Masks4Africa/StockCalculator/bashscripts
+	bash Calculate.sh $1 $2 $3 $4
 }
 cd ../pkg/service/v1
 cd ./netcoreapp3.1
