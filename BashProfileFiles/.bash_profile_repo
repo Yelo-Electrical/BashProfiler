@@ -1,6 +1,7 @@
 # If .NET Core App
 # To only view your unread mail in primary gmail inbox, put this in your search bar: in: category:primary is:unread
 # fixgit=git remote -v && git remote set-url origin git@github.com:yourname/yourrepo.git &&
+#Nothing, get out of my face!
 #SELECT CONCAT('DROP DATABASE `', SCHEMA_NAME, '`;') FROM `information_schema`.`SCHEMATA` WHERE SCHEMA_NAME LIKE 't%';
 #This_one-is_for_the_boys.
 #thisbisbSO,_Sweet)thankss!
