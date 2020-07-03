@@ -20,7 +20,7 @@ cd pkg/main
 go build .
 mv main.exe ../../build
 cd ../../build
-./main.exe $1
+./main.exe "$1"
 
 echo Copying .bash_profile back to working directory
 cp -r ../bashprofilefiles/.bash_profile ~/

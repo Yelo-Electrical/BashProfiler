@@ -111,6 +111,10 @@ calc() {
 }
 calc() {
 	repo && cd Masks4Africa/StockCalculator/bashscripts
+	bash Calculate.sh $1 $2 $3
+}
+calc() {
+	repo && cd Masks4Africa/StockCalculator/bashscripts
 	bash Calculate.sh $1 $2 $3 $4
 }
 cd ../pkg/service/v1
