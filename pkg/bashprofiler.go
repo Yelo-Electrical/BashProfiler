@@ -143,7 +143,7 @@ func (bp *BashProfiler) SaveHeaderName() {
 	fmt.Print("\n\nWhats on your mind dude? \n")
 	message, _ := reader.ReadString('\n')
 
-	if message != "" {
+	if len(message) > 4 {
 		b = []byte(string(b) + "\n#" + message)
 		err = ioutil.WriteFile("../headers.txt", b, 0644)
 		if err != nil {
