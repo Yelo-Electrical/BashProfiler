@@ -142,7 +142,7 @@ func (bp *BashProfiler) SaveHeaderName() {
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Print("\n\nWhats on your mind dude? \n")
 	message, _ := reader.ReadString('\n')
-
+	message = strings.TrimSpace(message)
 	if message != "" {
 		b = []byte(string(b) + "\n#" + message)
 		err = ioutil.WriteFile("../headers.txt", b, 0644)
