@@ -196,6 +196,24 @@ genp() {
 	toscripts $1
 	bash genProto.sh
 }
+gitinit() {
+	name=$1
+	repo=$2
+	if [[ ${repo} != '' ]];
+	then
+	mkdir ./temp 2> /dev/null
+	mkdir ./${name} 2> /dev/null
+	git clone ${repo} ./temp
+	shopt -s dotglob
+	mv -v ./temp/* ./${name}/
+	rm -rf temp
+	else
+	echo -e "\033[31mUsage: gitinit <folderName> <repo.git>"
+	echo
+	echo -e "\033[32mgitinit MyApp https://github.com/User/MyApp.git"
+	echo
+	fi
+}
 go test
 hf() {
 	repo
