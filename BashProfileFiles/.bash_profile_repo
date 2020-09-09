@@ -239,6 +239,11 @@ mc() {
 	cd "$LOCALAPPDATA"
 	cd "./Packages/Microsoft.MinecraftUWP_8wekyb3d8bbwe/LocalState/games/com.mojang"
 }
+mcj() {
+	version=$1
+	cd E:
+	cd "./Minecraft/1.${version}"
+}
 mergesquash() {
 	checknew "$1Merge"
 	git merge --squash "$1"
