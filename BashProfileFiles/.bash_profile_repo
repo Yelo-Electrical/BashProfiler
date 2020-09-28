@@ -7,11 +7,89 @@
 #New commands, baby!
 #Nothing, get out of my face!
 #SELECT CONCAT('DROP DATABASE `', SCHEMA_NAME, '`;') FROM `information_schema`.`SCHEMATA` WHERE SCHEMA_NAME LIKE 't%';
+#THisIsOnMyMind
 #Take my money!
 #This0is9Nice!
 #This_one-is_for_the_boys.
 #edit
 #thisbisbSO,_Sweet)thankss!
+PATH=${PATH}:/usr/local/mysql/bin
+	PATH="/Library/Frameworks/Python.framework/Versions/3.8/bin:${PATH}"
+	export isDev=1
+	export GOPATH="/Users/james/go"
+	# export GOOGLE_APPLICATION_CREDENTIALS="/Users/james/go/src/github.com/HappySaila/NRP/gcloud-nsfas-key-file.json"
+	export GOOGLE_APPLICATION_CREDENTIALS="/Users/james/go/src/github.com/MSpaceDev/JiraOnTheGO/gcloud-jiraonthego-key.json"
+	export PATH
+	export BASH_SILENCE_DEPRECATION_WARNING=1
+	alias at='alacritty-themes'
+	alias aww="yelobe && cd bashscripts && bash genWhatsAppToken.sh"
+	alias b="cd .."
+	alias be="repo && cd YeloElectrical/BE"
+	alias bp="goh && cd BashProfiler"
+	alias pp="goh && cd ParallelByEndpoint"
+	alias c="clear"
+	alias dev="cd ~/../james/Dev"
+	alias dls="cd ~/Downloads && e"
+	alias edit="subl ~/.bash_profile"
+	alias fe="repo && cd YeloElectrical/FE/YeloElectrical"
+	alias fresh="source ~/.bash_profile"
+	alias ga="git add . && clear && git status"
+	alias gb="git branch"
+	alias gbd="git branch -D $1"
+	alias gcf="git add . && git commit -m 'Force commit'"
+	alias gcl="gcloud config list"
+	alias gcsp="gcloud config set project $1"
+	alias gcp="gcloud projects list"
+	alias gcb="gcloud app browse"
+	alias gcd="gcloud app deploy"
+	alias gca="gcloud auth login"
+	alias gens="toscripts be && bash genSchema.sh"
+	alias genp="fe && cd bashscripts && bash genProto.sh"
+	alias gln="find . -name '*.go' | xargs wc -l"
+	alias gmv="go mod vendor"
+	alias gop="cd ~/go/"
+	alias goh="cd ~/go/src/github.com/HappySaila"
+	alias gom="cd ~/go/src/github.com/MSpaceDev"
+	alias gp="git push -u origin $1"
+	alias gr="git rebase $1"
+	alias gs="clear && git status"
+	alias gsa="git stash apply"
+	alias gst="git stash"
+	alias home="repo && cd Grant"
+	alias jog="gom && cd JiraOnTheGO"
+	alias la="ls -a"
+	alias nr="goh && cd NRP"
+	alias ns="netstat -ano"
+	alias pf="cd PayFast"
+	alias repo="cd ~/../james/Dev/Repositories/"
+	alias r="clear && source ~/.bash_profile"
+	alias run="bash run.sh"
+	alias rbp="bp && rm -rf bashprofilefiles/.bash* && cp backup/.bash_profile_deleted bashprofilefiles/ && cp backup/.bash_profile bashprofilefiles/ && cp backup/.bash_profile_repo bashprofilefiles/"
+	alias sh="bash"
+	alias show="explorer ."
+	alias sql="mysql -u root -p -h 127.0.0.1 -P 3306"
+	alias temp="cd $TEMP"
+	alias vbp="bp && cat bashprofilefiles/.bash_profile"
+	alias vbpd="bp && cat bashprofilefiles/.bash_profile_deleted"
+	alias vbpr="bp && cat bashprofilefiles/.bash_profile_repo"
+	alias vcy="circleci.exe config validate"
+	alias aww="yelobe && cd bashscripts && bash genWhatsAppToken.sh"
+	alias cal="repo && cd Masks4Africa/Calculator/"
+	alias cdsMember="gcloud dataflow jobs run DeleteDatastoreKind --gcs-location gs://dataflow-templates-us-central1/latest/Datastore_to_Datastore_Delete --region us-central1 --staging-location gs://nsfas-referral2.appspot.com/temp --parameters datastoreReadGqlQuery=\"SELECT * FROM Member,datastoreReadProjectId=nsfas-referral2,datastoreDeleteProjectId=nsfas-referral2\""
+	alias cdsScore="gcloud dataflow jobs run DeleteDatastoreKind --gcs-location gs://dataflow-templates-us-central1/latest/Datastore_to_Datastore_Delete --region us-central1 --staging-location gs://nsfas-referral2.appspot.com/temp --parameters datastoreReadGqlQuery=\"SELECT * FROM Score,datastoreReadProjectId=nsfas-referral2,datastoreDeleteProjectId=nsfas-referral2\""
+	alias cdsTeam="gcloud dataflow jobs run DeleteDatastoreKind --gcs-location gs://dataflow-templates-us-central1/latest/Datastore_to_Datastore_Delete --region us-central1 --staging-location gs://nsfas-referral2.appspot.com/temp --parameters datastoreReadGqlQuery=\"SELECT * FROM Team,datastoreReadProjectId=nsfas-referral2,datastoreDeleteProjectId=nsfas-referral2\""
+	alias gr="git rebase $1"
+	alias ns="netstat -ano"
+	alias rbp="bp && rm -rf bashprofilefiles/.bash* && cp backup/.bash_profile_deleted bashprofilefiles/ && cp backup/.bash_profile bashprofilefiles/ && cp backup/.bash_profile_repo bashprofilefiles/"
+	alias sh="bash"
+	alias vbp="bp && cat bashprofilefiles/.bash_profile"
+	alias vbpd="bp && cat bashprofilefiles/.bash_profile_deleted"
+	alias vbpr="bp && cat bashprofilefiles/.bash_profile_repo"
+	berge() {
+	bp
+	cd scripts
+	bash run.sh
+}
 PATH=${PATH}:/usr/local/mysql/bin
 	PATH="/Library/Frameworks/Python.framework/Versions/3.8/bin:${PATH}"
 	export isDev=1
@@ -153,81 +231,18 @@ PATH=${PATH}:/usr/local/mysql/bin
 	cd "$LOCALAPPDATA"
 	cd "./Packages/Microsoft.MinecraftUWP_8wekyb3d8bbwe/LocalState/games/com.mojang"
 }
-abpath(){
-	echo "it
-	"
-}
-alias aww="be && cd bashscripts && bash genWhatsAppToken.sh"
 alias aww="yelobe && cd bashscripts && bash genWhatsAppToken.sh"
-alias b="cd .."
-alias be="cd be"
-alias be="yelo && cd BE"
-alias bp="yelo && cd BashProfiler"
-alias bpc="rbp && bp && cd bashprofilefiles && cp ~/.bash_profile ."
-alias bs="cd bashscripts"
-alias c="clear"
 alias cal="repo && cd Masks4Africa/Calculator/"
-alias cds="gcloud dataflow jobs run \"BulkDelete\" --gcs-location gs://dataflow-templates-europe-west1/latest/Datastore_to_Datastore_Delete --region europe-west1 --staging-location gs://james-celbux.appspot.com/temp --parameters \"datastoreReadGqlQuery=SELECT *,datastoreReadProjectId=james-celbux,datastoreDeleteProjectId=james-celbux\""
 alias cdsMember="gcloud dataflow jobs run DeleteDatastoreKind --gcs-location gs://dataflow-templates-us-central1/latest/Datastore_to_Datastore_Delete --region us-central1 --staging-location gs://nsfas-referral2.appspot.com/temp --parameters datastoreReadGqlQuery=\"SELECT * FROM Member,datastoreReadProjectId=nsfas-referral2,datastoreDeleteProjectId=nsfas-referral2\""
 alias cdsScore="gcloud dataflow jobs run DeleteDatastoreKind --gcs-location gs://dataflow-templates-us-central1/latest/Datastore_to_Datastore_Delete --region us-central1 --staging-location gs://nsfas-referral2.appspot.com/temp --parameters datastoreReadGqlQuery=\"SELECT * FROM Score,datastoreReadProjectId=nsfas-referral2,datastoreDeleteProjectId=nsfas-referral2\""
 alias cdsTeam="gcloud dataflow jobs run DeleteDatastoreKind --gcs-location gs://dataflow-templates-us-central1/latest/Datastore_to_Datastore_Delete --region us-central1 --staging-location gs://nsfas-referral2.appspot.com/temp --parameters datastoreReadGqlQuery=\"SELECT * FROM Team,datastoreReadProjectId=nsfas-referral2,datastoreDeleteProjectId=nsfas-referral2\""
-alias cm="check master"
-alias dev="cd ~/Dev"
-alias dls="cd ~/Downloads && e"
-alias dum="yelo && cd DummyMS"
-alias e="explorer ."
-alias edit="notepad ~/.bash_profile &"
-alias edit="notepad ~/.bash_profile"
-alias edit="subl ~/.bash_profile"
-alias fe="cd fe"
-alias fresh="source ~/.bash_profile"
-alias ga="git add . && clear && git status"
-alias gb="clear && git branch"
-alias gbd="git branch -D $1"
-alias gcf="git add . && git commit -m 'Force commit'"
-alias gens="toscripts be && bash genSchema.sh"
-alias gln="find . -name '*.*' | xargs wc -l"
-alias gln="find . -name '*.go' | xargs wc -l"
-alias gln="find . -name '*.mcfunction' | xargs wc -l"
-alias gmv="go mod vendor"
-alias gop="cd c:/go"
-alias gopath="dev && cd go"
-alias gp="git push -u origin $1"
-alias gp="git push origin master"
 alias gr="git rebase $1"
-alias gs="clear && git status"
-alias gsa="git stash apply"
-alias gst="git stash"
-alias home="cd ~"
-alias la="ls -a"
-alias la="ls -al"
-alias ll="ls -l"
-alias mas="repo && cd Masks4Africa"
-alias notepad="/c/Program\ Files\ \(x86\)/Notepad++/notepad++.exe"
 alias ns="netstat -ano"
-alias pf="cd PayFast"
-alias r="clear && source ~/.bash_profile"
 alias rbp="bp && rm -rf bashprofilefiles/.bash* && cp backup/.bash_profile_deleted bashprofilefiles/ && cp backup/.bash_profile bashprofilefiles/ && cp backup/.bash_profile_repo bashprofilefiles/"
-alias repo="cd ~/Dev/Repositories"
-alias res="bp && cp -r ~/BergeSafetyVault/.bash_profile ~/. && cp ~/.bash_profile bashprofilefiles/"
 alias sh="bash"
-alias show="explorer ."
-alias sql="mysql -u root -p -h 127.0.0.1 -P 3306"
-alias sql="mysql -u root -p"
-alias temp="cd $TEMP"
 alias vbp="bp && cat bashprofilefiles/.bash_profile"
 alias vbpd="bp && cat bashprofilefiles/.bash_profile_deleted"
 alias vbpr="bp && cat bashprofilefiles/.bash_profile_repo"
-alias vcy="circleci.exe config validate"
-alias vcz= Echo "I am new and I am an easter e"
-alias vcz= Echo "I am new and I am an easter egg"
-alias vcz= Echo "I am new and I am an easter egg, Now I am working and is real egg"
-alias yelo="cd ~/Dev/Repositories/YeloElectrical"
-berge() {
-	bp
-	cd scripts
-	bash run.sh
-}
 berge() {
 	bp
 	cd scripts
@@ -736,5 +751,4 @@ yelobe() {
 yelopf() {
 	yelo
 	pf
-}
 }
