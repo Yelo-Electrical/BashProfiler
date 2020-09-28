@@ -4,6 +4,7 @@
 # fixgit=git remote -v && git remote set-url origin git@github.com:yourname/yourrepo.git &&
 #Let's go!
 #Lets
+#New commands, baby!
 #Nothing, get out of my face!
 #SELECT CONCAT('DROP DATABASE `', SCHEMA_NAME, '`;') FROM `information_schema`.`SCHEMATA` WHERE SCHEMA_NAME LIKE 't%';
 #Take my money!
@@ -11,6 +12,70 @@
 #This_one-is_for_the_boys.
 #edit
 #thisbisbSO,_Sweet)thankss!
+PATH=${PATH}:/usr/local/mysql/bin
+	PATH="/Library/Frameworks/Python.framework/Versions/3.8/bin:${PATH}"
+	export isDev=1
+	export GOPATH="/Users/james/go"
+	# export GOOGLE_APPLICATION_CREDENTIALS="/Users/james/go/src/github.com/HappySaila/NRP/gcloud-nsfas-key-file.json"
+	export GOOGLE_APPLICATION_CREDENTIALS="/Users/james/go/src/github.com/MSpaceDev/JiraOnTheGO/gcloud-jiraonthego-key.json"
+	export PATH
+	export BASH_SILENCE_DEPRECATION_WARNING=1
+	alias at='alacritty-themes'
+	alias aww="yelobe && cd bashscripts && bash genWhatsAppToken.sh"
+	alias b="cd .."
+	alias be="repo && cd YeloElectrical/BE"
+	alias bp="goh && cd BashProfiler"
+	alias pp="goh && cd ParallelByEndpoint"
+	alias c="clear"
+	alias dev="cd ~/../james/Dev"
+	alias dls="cd ~/Downloads && e"
+	alias edit="subl ~/.bash_profile"
+	alias fe="repo && cd YeloElectrical/FE/YeloElectrical"
+	alias fresh="source ~/.bash_profile"
+	alias ga="git add . && clear && git status"
+	alias gb="git branch"
+	alias gbd="git branch -D $1"
+	alias gcf="git add . && git commit -m 'Force commit'"
+	alias gcl="gcloud config list"
+	alias gcsp="gcloud config set project $1"
+	alias gcp="gcloud projects list"
+	alias gcb="gcloud app browse"
+	alias gcd="gcloud app deploy"
+	alias gca="gcloud auth login"
+	alias gens="toscripts be && bash genSchema.sh"
+	alias genp="fe && cd bashscripts && bash genProto.sh"
+	alias gln="find . -name '*.go' | xargs wc -l"
+	alias gmv="go mod vendor"
+	alias gop="cd ~/go/"
+	alias goh="cd ~/go/src/github.com/HappySaila"
+	alias gom="cd ~/go/src/github.com/MSpaceDev"
+	alias gp="git push -u origin $1"
+	alias gr="git rebase $1"
+	alias gs="clear && git status"
+	alias gsa="git stash apply"
+	alias gst="git stash"
+	alias home="repo && cd Grant"
+	alias jog="gom && cd JiraOnTheGO"
+	alias la="ls -a"
+	alias nr="goh && cd NRP"
+	alias ns="netstat -ano"
+	alias pf="cd PayFast"
+	alias repo="cd ~/../james/Dev/Repositories/"
+	alias r="clear && source ~/.bash_profile"
+	alias run="bash run.sh"
+	alias rbp="bp && rm -rf bashprofilefiles/.bash* && cp backup/.bash_profile_deleted bashprofilefiles/ && cp backup/.bash_profile bashprofilefiles/ && cp backup/.bash_profile_repo bashprofilefiles/"
+	alias sh="bash"
+	alias show="explorer ."
+	alias sql="mysql -u root -p -h 127.0.0.1 -P 3306"
+	alias temp="cd $TEMP"
+	alias vbp="bp && cat bashprofilefiles/.bash_profile"
+	alias vbpd="bp && cat bashprofilefiles/.bash_profile_deleted"
+	alias vbpr="bp && cat bashprofilefiles/.bash_profile_repo"
+	alias vcy="circleci.exe config validate"
+	mc() {
+	cd "$LOCALAPPDATA"
+	cd "./Packages/Microsoft.MinecraftUWP_8wekyb3d8bbwe/LocalState/games/com.mojang"
+}
 abpath(){
 	echo "it
 	"
@@ -26,6 +91,9 @@ alias bs="cd bashscripts"
 alias c="clear"
 alias cal="repo && cd Masks4Africa/Calculator/"
 alias cds="gcloud dataflow jobs run \"BulkDelete\" --gcs-location gs://dataflow-templates-europe-west1/latest/Datastore_to_Datastore_Delete --region europe-west1 --staging-location gs://james-celbux.appspot.com/temp --parameters \"datastoreReadGqlQuery=SELECT *,datastoreReadProjectId=james-celbux,datastoreDeleteProjectId=james-celbux\""
+alias cdsMember="gcloud dataflow jobs run DeleteDatastoreKind --gcs-location gs://dataflow-templates-us-central1/latest/Datastore_to_Datastore_Delete --region us-central1 --staging-location gs://nsfas-referral2.appspot.com/temp --parameters datastoreReadGqlQuery=\"SELECT * FROM Member,datastoreReadProjectId=nsfas-referral2,datastoreDeleteProjectId=nsfas-referral2\""
+alias cdsScore="gcloud dataflow jobs run DeleteDatastoreKind --gcs-location gs://dataflow-templates-us-central1/latest/Datastore_to_Datastore_Delete --region us-central1 --staging-location gs://nsfas-referral2.appspot.com/temp --parameters datastoreReadGqlQuery=\"SELECT * FROM Score,datastoreReadProjectId=nsfas-referral2,datastoreDeleteProjectId=nsfas-referral2\""
+alias cdsTeam="gcloud dataflow jobs run DeleteDatastoreKind --gcs-location gs://dataflow-templates-us-central1/latest/Datastore_to_Datastore_Delete --region us-central1 --staging-location gs://nsfas-referral2.appspot.com/temp --parameters datastoreReadGqlQuery=\"SELECT * FROM Team,datastoreReadProjectId=nsfas-referral2,datastoreDeleteProjectId=nsfas-referral2\""
 alias cm="check master"
 alias dev="cd ~/Dev"
 alias dls="cd ~/Downloads && e"
@@ -104,6 +172,10 @@ calb() {
 	repo && cd Masks4Africa/Calculator/bashscripts
 	bash CalBoth.sh $1 $2 $3
 }
+calb() {
+	repo && cd Masks4Africa/StockCalculator/bashscripts
+	bash CalBoth.sh $1 $2 $3
+}
 calc() {
 	repo && cd Masks4Africa/StockCalculator/bashscripts
 	bash Calculate.sh $1 $2 $3
@@ -141,6 +213,26 @@ cd() {
 	clear
 	
 	echo
+	command cd "$dir"
+	
+	CURRENT=`pwd`
+	echo -e "\033[36mCurrently in: \033[35m $CURRENT\033[m"
+	if [[ $args != '' ]];
+	then
+	echo -e "\033[31m(Showing hidden files and folders)\033[m"
+	ls -a
+	else
+	ls
+	fi
+	echo
+}
+cd() {
+	dir=$1
+	args=$2
+	
+	clear
+	
+	echo
 	command cd $dir
 	
 	CURRENT=`pwd`
@@ -154,15 +246,31 @@ cd() {
 	fi
 	echo
 }
+cds() {
+	cdsMember
+	cdsTeam
+	cdsScore
+}
+cel() {
+	repo && cd Celbux
+}
 cgp() {
 	c && gcf && gp && echo -e "\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
 	echo -e "\n\n\n\n\n\n\n\n\n\n\n\t\t\t Ready ->"
+}
+chan() {
+	cd ~/go/src/Channels
 }
 check() {
 	git checkout $1
 }
 checknew() {
 	git checkout -b $1
+}
+cover () {
+	rm -rf /private/var/folders/fc/8x2clfn57bbgwxzbh1lfvm0r0000gn/T/cover*
+	t="/tmp/go-cover.$$.tmp"
+	go test -coverprofile=$t $@ && go tool cover -html=$t && unlink $t
 }
 cyclo {
 	cd "C:\Program Files\Cypress\TrackPad"
@@ -203,6 +311,15 @@ gencsv() {
 genp() {
 	toscripts $1
 	bash genProto.sh
+}
+gi() {
+	echo "Creating repo" >> README.md
+	git init
+	git add README.md
+	git commit -m "Git initialized"
+	git branch -M master
+	git remote add origin $1
+	git push -u origin master
 }
 gitinit() {
 	name=$1
@@ -257,6 +374,15 @@ mcj() {
 	cd E:
 	cd "./Minecraft/1.${version}"
 }
+merge() {
+	checknew "$1Merge"
+	git merge --squash "$1"
+	git add .
+	git commit
+	check master
+	git merge "$1Merge"
+	git branch -D "$1Merge"
+}
 mergesquash() {
 	checknew "$1Merge"
 	git merge --squash "$1"
@@ -301,6 +427,11 @@ o () {
 }
 o() {
 	subl $1
+}
+py() {
+	if command -v pyenv 1>/dev/null 2>&1; then
+	eval "$(pyenv init -)"
+	fi
 }
 repo() {
 	cd ~/Dev/Repositories

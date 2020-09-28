@@ -1,3 +1,5 @@
 #Take my money!
 #New commands, baby!
 #edit
+#I think I got bash profiler working on mac
+#First push from MAC

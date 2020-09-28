@@ -18,9 +18,18 @@ cd ..
 mkdir -p build
 cd pkg/main
 go build .
-mv main.exe ../../build
-cd ../../build
-./main.exe "$1"
+if [[ $OSTYPE == "msys" ]];
+then
+    mv main.exe ../../build
+    cd ../../build
+    ./main.exe "$1"
+elif [[ $OSTYPE == "darwin"* ]];
+then
+    mv main ../../build
+    cd ../../build
+    ./main "$1"
+fi
+
 
 echo Copying .bash_profile back to working directory
 cp -r ../bashprofilefiles/.bash_profile ~/
